@@ -14,10 +14,8 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=5" />
-
-    <script src="js/script.js" defer></script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 
 <body>
@@ -27,10 +25,12 @@
             <img src="images/logo.png" alt="Dogu Kebab logo" />
             <span class="brand-text">Dogu&nbsp;Kebab</span>
         </a>
+
         <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
                 onclick="var n=document.getElementById('site-nav');var b=this;if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}">
             &#9776;
         </button>
+
         <nav class="nav-links" id="site-nav">
             <a href="index.html" class="active">Home</a>
             <a href="overons.html">Over Ons</a>
@@ -75,7 +75,7 @@
         </div>
     </section>
 
-    <!-- Gallery Slider -->
+    <!-- Gallery Slider (Swiper) -->
     <section class="gallery-strip" data-aos="fade-left">
         <div class="swiper gallery-swiper">
             <div class="swiper-wrapper">
@@ -107,22 +107,26 @@
         </div>
     </footer>
 
-    <!-- JS Libraries -->
+    <!-- JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init();
-
         new Swiper(".gallery-swiper", {
-            slidesPerView: "auto",
-            spaceBetween: 16,
             loop: true,
+            speed: 600,
             autoplay: {
                 delay: 2000,
                 disableOnInteraction: false,
             },
-            freeMode: false,
-            centeredSlides: false
+            spaceBetween: 16,
+            slidesPerView: 5,          // default (desktop)
+            breakpoints: {
+                0: { slidesPerView: 2.2, spaceBetween: 12 },  // mobile
+                480: { slidesPerView: 3, spaceBetween: 12 },
+                768: { slidesPerView: 4, spaceBetween: 14 },
+                1024: { slidesPerView: 5, spaceBetween: 16 }
+            }
         });
     </script>
 </body>
