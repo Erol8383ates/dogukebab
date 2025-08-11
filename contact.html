@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – Dogu Kebab</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Dogu Kebab">
+            <span class="brand-divider" aria-hidden="true"></span>
+            <span class="brand-text">
+                <span class="line1">DOGU</span>
+                <span class="line2">KEBAB</span>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="overons.html">Over Ons</a>
+            <a href="menu.html">Menu</a>
+            <a href="reserveren.html">Reserveren</a>
+            <a href="contact.html" class="active">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="contact-hero">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Een warme ontmoeting begint hier</h1>
+            <p>Wij staan klaar voor al uw vragen, ideeën of feedback.</p>
+
+            <!-- NEW: Scroll-to button -->
+            <a href="#contact" class="cta-scroll">Stuur ons een bericht</a>
+            <span class="scroll-chevron" aria-hidden="true"></span>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section" data-aos="fade-up">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Onze Gegevens</h2>
+                <p><strong>Adres:</strong> Grote Markt 12, 2500 Lier</p>
+                <p><strong>Telefoon:</strong> <a href="tel:+32123456789">+32 123 45 67 89</a></p>
+                <p><strong>Email:</strong> <a href="mailto:info@dogukebab.be">info@dogukebab.be</a></p>
+                <p>
+                    <strong>Openingsuren:</strong><br>
+                    Ma–Zat: 12:00 – 23:00<br>
+                    Zon: Gesloten
+                </p>
+            </div>
+
+            <div class="contact-form">
+                <h2>Stuur ons een bericht</h2>
+
+                <!-- ✅ Wired to Web3Forms -->
+                <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+                    <!-- Required hidden fields -->
+                    <input type="hidden" name="access_key" value="1962fcf0-e74c-4e47-b735-834fe37f1ecf" />
+                    <input type="hidden" name="subject" value="Nieuw bericht via Contact – Dogu Kebab" />
+                    <input type="hidden" name="from_name" value="Contact Formulier" />
+
+                    <input type="text" name="name" id="cname" placeholder="Naam" required />
+                    <input type="email" name="email" placeholder="Email" required />
+                    <input type="tel" name="phone" placeholder="Telefoonnummer" />
+                    <textarea name="message" placeholder="Uw bericht..." rows="5" required></textarea>
+
+                    <!-- Optional honeypot anti-spam -->
+                    <input type="checkbox" name="botcheck" style="display:none!important" tabindex="-1" autocomplete="off">
+
+                    <button type="submit">Versturen</button>
+                    <p id="contactStatus" class="status" hidden></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="map-section" data-aos="fade-up">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2503.373202523927!2d4.56756698633884!3d51.138468664711944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c3fd2ae13053f3%3A0x9d60a2cf5be022f!2sDogu%20Kebab!5e0!3m2!1snl!2sbe!4v1754934522023!5m2!1snl!2sbe"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Dogu Kebab. Alle rechten voorbehouden.</p>
+        <div class="socials">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TripAdvisor</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        const cForm = document.getElementById('contactForm');
+        const cStatus = document.getElementById('contactStatus');
+
+        cForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(cForm);
+            try {
+                const res = await fetch(cForm.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
+                const out = await res.json();
+                if (out.success) {
+                    cStatus.hidden = false;
+                    cStatus.textContent = 'Bericht verzonden! We nemen spoedig contact met u op. ✅';
+                    cForm.reset();
+                } else {
+                    cStatus.hidden = false;
+                    cStatus.textContent = 'Verzenden mislukt. Probeer het later opnieuw.';
+                }
+            } catch {
+                cStatus.hidden = false;
+                cStatus.textContent = 'Netwerkfout. Controleer uw verbinding en probeer opnieuw.';
+            }
+        });
+
+        // focus first field after smooth scroll
+        document.querySelector('.cta-scroll')?.addEventListener('click', () => {
+            setTimeout(() => document.getElementById('cname')?.focus(), 600);
+        });
+    </script>
+</body>
+</html>

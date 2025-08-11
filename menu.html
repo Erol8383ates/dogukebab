@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu – Delizioso</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="Dogu Kebab">
+            <span class="brand-divider" aria-hidden="true"></span>
+            <span class="brand-text">
+                <span class="line1">DOGU</span>
+                <span class="line2">KEBAB</span>
+            </span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="overons.html">Over Ons</a>
+            <a href="menu.html">Menu</a>
+            <a href="reserveren.html" class="active">Reserveren</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- Hero + filters -->
+    <section class="menu-hero">
+        <div class="hero-overlay">
+            <div class="menu-hero-content">
+                <h1>Ontdek ons Menu</h1>
+                <p>Authentieke smaken uit de Mediterrane keuken</p>
+                <div class="menu-filter">
+                    <button class="filter-btn active" data-filter="all">Alles</button>
+                    <button class="filter-btn" data-filter="drank">Ontbijt</button>
+                    <button class="filter-btn" data-filter="voorgerecht">Voorgerechten</button>
+                    <button class="filter-btn" data-filter="hoofdgerecht">Hoofdgerechten</button>
+                    <button class="filter-btn" data-filter="dessert">Desserts</button>
+                    <button class="filter-btn" data-filter="drank">Dranken</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-grid">
+
+        <!-- VOORGERECHTEN -->
+        <!-- Repeat 15 voorgerechten -->
+        <div class="menu-item voorgerecht"><img src="images/dish1.jpg" alt="Ezme" /><div class="item-info"><h3>Ezme</h3><p>Pittige tomatensalade</p><span>€5,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish2.jpg" alt="Sigara Börek" /><div class="item-info"><h3>Sigara Börek</h3><p>Filodeeg met feta</p><span>€6,00</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish3.jpg" alt="Hummus" /><div class="item-info"><h3>Hummus</h3><p>Kikkererwtenpuree</p><span>€5,00</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Cacık" /><div class="item-info"><h3>Cacık</h3><p>Yoghurt met komkommer</p><span>€4,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Linzensoep" /><div class="item-info"><h3>Linzensoep</h3><p>Romige rode linzen</p><span>€5,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Tabbouleh" /><div class="item-info"><h3>Tabbouleh</h3><p>Frisse bulgursalade</p><span>€6,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Gemarineerde olijven" /><div class="item-info"><h3>Olijvenmix</h3><p>Met kruiden & olie</p><span>€3,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Kaasplateau" /><div class="item-info"><h3>Kaasplateau</h3><p>Mediterrane kazen</p><span>€7,00</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/dish4.jpg" alt="Bruschetta" /><div class="item-info"><h3>Bruschetta</h3><p>Met tomaat & basilicum</p><span>€4,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/paprika.jpg" alt="Gegrilde paprika" /><div class="item-info"><h3>Gegrilde paprika</h3><p>Met olijfolie</p><span>€5,00</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/kibbeh.jpg" alt="Kibbeh" /><div class="item-info"><h3>Kibbeh</h3><p>Gehaktballetjes uit de oven</p><span>€6,00</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/yaprak.jpg" alt="Dolma" /><div class="item-info"><h3>Dolma</h3><p>Wijnbladeren gevuld met rijst</p><span>€5,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/mezze.jpg" alt="Mezze mix" /><div class="item-info"><h3>Mezze mix</h3><p>Proeverij voorgerechten</p><span>€9,50</span></div></div>
+        <div class="menu-item voorgerecht"><img src="images/artichoke.jpg" alt="Artisjok" /><div class="item-info"><h3>Artisjok</h3><p>Met citroenolie</p><span>€5,50</span></div></div>
+
+        <!-- HOOFDGERECHTEN -->
+        <!-- Repeat 15 hoofdgerechten -->
+        <div class="menu-item hoofdgerecht"><img src="images/iskender.jpg" alt="Iskender" /><div class="item-info"><h3>Iskender</h3><p>Döner met saus en yoghurt</p><span>€15,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/adana.jpg" alt="Adana Kebap" /><div class="item-info"><h3>Adana Kebap</h3><p>Pittige lamsgehaktspies</p><span>€14,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/manti.jpg" alt="Manti" /><div class="item-info"><h3>Manti</h3><p>Turkse ravioli met yoghurt</p><span>€13,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/sis.jpg" alt="Şiş Kebab" /><div class="item-info"><h3>Şiş Kebab</h3><p>Gemarineerde vleesspies</p><span>€15,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/kofta.jpg" alt="Köfte" /><div class="item-info"><h3>Köfte</h3><p>Gekruide gehaktballetjes</p><span>€14,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/tavuk.jpg" alt="Tavuk Şiş" /><div class="item-info"><h3>Tavuk Şiş</h3><p>Kipspies met kruiden</p><span>€13,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/lahmacun.jpg" alt="Lahmacun" /><div class="item-info"><h3>Lahmacun</h3><p>Turkse pizza met gehakt</p><span>€7,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/pide.jpg" alt="Pide" /><div class="item-info"><h3>Pide</h3><p>Gevuld Turks brood</p><span>€8,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/karisik.jpg" alt="Mix Grill" /><div class="item-info"><h3>Mix Grill</h3><p>Combinatie van kebabs</p><span>€19,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/kebabwrap.jpg" alt="Kebab Wrap" /><div class="item-info"><h3>Kebab Wrap</h3><p>Wrap met döner en saus</p><span>€8,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/vega-pide.jpg" alt="Vegetarische Pide" /><div class="item-info"><h3>Pide Vega</h3><p>Met groenten en kaas</p><span>€9,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/seafood.jpg" alt="Zeebaars" /><div class="item-info"><h3>Gegrilde Zeebaars</h3><p>Met citroen & kruiden</p><span>€17,00</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/kuzu.jpg" alt="Lamskotelet" /><div class="item-info"><h3>Lamskotelet</h3><p>Perfect gegrild</p><span>€18,50</span></div></div>
+        <div class="menu-item hoofdgerecht"><img src="images/durum.jpg" alt="Dürüm" /><div class="item-info"><h3>Dürüm</h3><p>Met kip of döner</p><span>€7,50</span></div></div>
+
+        <!-- DESSERTS + DRANK follow after -->
+        <!-- DESSERTEN -->
+        <div class="menu-item dessert"><img src="images/baklava.jpg" alt="Baklava" /><div class="item-info"><h3>Baklava</h3><p>Laagjes filodeeg met noten</p><span>€4,50</span></div></div>
+        <div class="menu-item dessert"><img src="images/kazandibi.jpg" alt="Kazandibi" /><div class="item-info"><h3>Kazandibi</h3><p>Gekarameliseerde melkpudding</p><span>€5,00</span></div></div>
+        <div class="menu-item dessert"><img src="images/künefe.jpg" alt="Künefe" /><div class="item-info"><h3>Künefe</h3><p>Warme kaasdessert met siroop</p><span>€6,00</span></div></div>
+        <div class="menu-item dessert"><img src="images/sütlac.jpg" alt="Sütlaç" /><div class="item-info"><h3>Sütlaç</h3><p>Traditionele rijstpudding</p><span>€4,50</span></div></div>
+        <div class="menu-item dessert"><img src="images/halva.jpg" alt="Halva" /><div class="item-info"><h3>Halva</h3><p>Sesam dessert met honing</p><span>€3,50</span></div></div>
+        <div class="menu-item dessert"><img src="images/figs.jpg" alt="Gedroogde Vijgen" /><div class="item-info"><h3>Vijgen & Walnoten</h3><p>In honing</p><span>€4,00</span></div></div>
+        <div class="menu-item dessert"><img src="images/tulumba.jpg" alt="Tulumba" /><div class="item-info"><h3>Tulumba</h3><p>Gefrituurde zoete deegballetjes</p><span>€3,50</span></div></div>
+        <div class="menu-item dessert"><img src="images/icecream.jpg" alt="IJs" /><div class="item-info"><h3>Huisgemaakt ijs</h3><p>Vanille, pistache, chocolade</p><span>€4,00</span></div></div>
+        <div class="menu-item dessert"><img src="images/pistachiocake.jpg" alt="Pistachecake" /><div class="item-info"><h3>Pistachecake</h3><p>Met een vleugje rozenwater</p><span>€5,00</span></div></div>
+        <div class="menu-item dessert"><img src="images/orangecake.jpg" alt="Sinaasappelcake" /><div class="item-info"><h3>Sinaasappelcake</h3><p>Fris en luchtig</p><span>€4,50</span></div></div>
+
+        <!-- DrankEN -->
+        <!-- DRANKEN -->
+        <div class="menu-item drank"><img src="images/turkishtea.jpg" alt="Turkse thee" /><div class="item-info"><h3>Turkse Thee</h3><p>Vers gezet in tulpglaasje</p><span>€2,00</span></div></div>
+        <div class="menu-item drank"><img src="images/turkkahvesi.jpg" alt="Turkse koffie" /><div class="item-info"><h3>Turkse Koffie</h3><p>Sterk en aromatisch</p><span>€2,50</span></div></div>
+        <div class="menu-item drank"><img src="images/minttea.jpg" alt="Muntthee" /><div class="item-info"><h3>Muntthee</h3><p>Vers met honing</p><span>€2,50</span></div></div>
+        <div class="menu-item drank"><img src="images/ayran.jpg" alt="Ayran" /><div class="item-info"><h3>Ayran</h3><p>Yoghurt drankje</p><span>€2,00</span></div></div>
+        <div class="menu-item drank"><img src="images/freshjuice.jpg" alt="Vers sap" /><div class="item-info"><h3>Vers sap</h3><p>Sinaasappel, wortel of mix</p><span>€3,50</span></div></div>
+        <div class="menu-item drank"><img src="images/water.jpg" alt="Water" /><div class="item-info"><h3>Water</h3><p>Plat of bruisend</p><span>€1,50</span></div></div>
+        <div class="menu-item drank"><img src="images/soda.jpg" alt="Frisdrank" /><div class="item-info"><h3>Frisdrank</h3><p>Cola, Fanta, Sprite</p><span>€2,50</span></div></div>
+        <div class="menu-item drank"><img src="images/housewine.jpg" alt="Huiswijn" /><div class="item-info"><h3>Huiswijn</h3><p>Rood, wit of rosé</p><span>€4,00</span></div></div>
+        <div class="menu-item drank"><img src="images/beer.jpg" alt="Bier" /><div class="item-info"><h3>Bier</h3><p>Efes, Stella, Leffe</p><span>€3,50</span></div></div>
+        <div class="menu-item drank"><img src="images/raaki.jpg" alt="Rakı" /><div class="item-info"><h3>Rakı</h3><p>Traditionele anijsdrank</p><span>€5,00</span></div></div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Dogu Kebab. Alle rechten voorbehouden.</p>
+        <div class="socials">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TripAdvisor</a>
+        </div>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll(".filter-btn");
+        const items = document.querySelectorAll(".menu-item");
+        const grid = document.querySelector(".menu-grid");
+        const navbar = document.querySelector(".navbar");
+
+        function smoothScrollTo(el) {
+            if (!el) return;
+            const offset = navbar ? navbar.offsetHeight : 80;     // yapışkan header yüksekliği
+            const y = el.getBoundingClientRect().top + window.pageYOffset - offset - 10;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                // aktif buton
+                buttons.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                // filtrele
+                const filter = btn.dataset.filter;
+                items.forEach(item => {
+                    const show = (filter === "all" || item.classList.contains(filter));
+                    item.style.display = show ? "flex" : "none";
+                });
+
+                // ⬇️ filtreye tıklayınca grid'e yumuşak scroll
+                smoothScrollTo(grid);
+            });
+        });
+    </script>
+
+</body>
+</html>
