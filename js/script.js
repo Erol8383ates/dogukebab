@@ -1,67 +1,77 @@
+// js/script.js
 document.addEventListener("DOMContentLoaded", () => {
-  // Elements (support both your old IDs and the new classes)
-  const toggleBtn =
-    document.querySelector(".menu-toggle") ||
-    document.getElementById("menuToggle");
+  // ===== HERO detection (home .hero-slideshow, overons .hero, contact .contact-hero)
+  const hero = document.querySelector(".hero-slideshow, .hero, .contact-hero");
+  const mqMobile = window.matchMedia("(max-width: 768px)");
+  if (hero) document.body.classList.add("has-hero");
 
-  const nav =
-    document.getElementById("site-nav") ||
-    document.getElementById("navLinks");
-
-  // Toggle mobile menu
-  function toggleMenu() {
-    if (!nav) return;
-    nav.classList.toggle("show");
-    if (toggleBtn) {
-      const expanded = nav.classList.contains("show");
-      toggleBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
-    }
-  }
-
-  if (toggleBtn && nav) {
-    toggleBtn.addEventListener("click", toggleMenu);
-
-    // Close on outside click
-    document.addEventListener("click", (e) => {
-      if (!nav.classList.contains("show")) return;
-      const clickedInside =
-        e.target === nav ||
-        nav.contains(e.target) ||
-        e.target === toggleBtn ||
-        toggleBtn.contains(e.target);
-      if (!clickedInside) nav.classList.remove("show");
-    });
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") nav.classList.remove("show");
-    });
-  }
-
-  // Mobile: make navbar solid after small scroll
-  const mq = window.matchMedia("(max-width: 768px)");
-
-  function updateHeader() {
-    if (mq.matches) {
-      // Mobile behavior: toggle body.nav-solid by scroll
-      if (window.scrollY > 50) {
-        document.body.classList.add("nav-solid");
-      } else {
-        document.body.classList.remove("nav-solid");
-      }
-    } else {
-      // Desktop: ensure solid + offset is applied
+  function applyHeaderState() {
+    if (!mqMobile.matches) {
       document.body.classList.remove("nav-solid");
+      return;
     }
+    if (!hero) {
+      document.body.classList.remove("has-hero");
+      document.body.classList.add("nav-solid");
+      return;
+    }
+    document.body.classList.toggle("nav-solid", window.scrollY > 24);
   }
+  applyHeaderState();
+  window.addEventListener("scroll", applyHeaderState, { passive: true });
+  window.addEventListener("resize", applyHeaderState);
 
-  // Run on load and on events
-  updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
-  window.addEventListener("resize", updateHeader);
+  // ===== Navbar(s)
+  document.querySelectorAll(".navbar").forEach((navbar) => {
+    const btn =
+      navbar.querySelector(".menu-toggle") ||
+      navbar.querySelector("[aria-controls]");
 
-  // If resizing to desktop, make sure the mobile menu is closed
-  window.addEventListener("resize", () => {
-    if (!mq.matches && nav) nav.classList.remove("show");
+    if (!btn) return;
+
+    // REMOVE any inline onclick to avoid double-toggling
+    if (btn.hasAttribute("onclick")) btn.removeAttribute("onclick");
+
+    // Resolve controlled menu
+    let menu = null;
+    const ctrl = btn.getAttribute("aria-controls");
+    if (ctrl) menu = document.getElementById(ctrl);
+    if (!menu) menu = navbar.querySelector(".nav-links");
+    if (!menu) return;
+
+    // Toggle helpers
+    const openMenu = () => {
+      menu.classList.add("show");
+      btn.setAttribute("aria-expanded", "true");
+    };
+    const closeMenu = () => {
+      menu.classList.remove("show");
+      btn.setAttribute("aria-expanded", "false");
+    };
+    const toggleMenu = () => (menu.classList.contains("show") ? closeMenu() : openMenu());
+
+    // Click -> toggle once
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    // Outside click closes
+    document.addEventListener("click", (e) => {
+      if (!menu.classList.contains("show")) return;
+      const inside = navbar.contains(e.target) || btn.contains(e.target) || menu.contains(e.target);
+      if (!inside) closeMenu();
+    });
+
+    // Esc closes
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Close when switching to desktop
+    const mqDesktop = window.matchMedia("(min-width: 901px)");
+    const handleResize = () => { if (mqDesktop.matches) closeMenu(); };
+    handleResize();
+    window.addEventListener("resize", handleResize);
   });
 });

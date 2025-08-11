@@ -17,6 +17,7 @@ body.dark {
     --footer-bg: #1a1a1a;
 }
 
+/* ---------- BASE ---------- */
 * {
     box-sizing: border-box
 }
@@ -31,11 +32,11 @@ html, body {
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    font-family: 'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
-    transition: background .3s, color .3s, padding-top .3s;
-    padding-top: var(--nav-h); /* desktop: offset fixed navbar */
+    transition: background .3s,color .3s,padding-top .3s;
+    padding-top: var(--nav-h); /* desktop offset for fixed navbar */
 }
 
 img {
@@ -46,7 +47,7 @@ img {
 
 /* ---------- BRAND TEXT ---------- */
 .brand-text {
-    font-family: 'Great Vibes', cursive;
+    font-family: 'Great Vibes',cursive;
     font-size: clamp(1.3rem,3.6vw,2rem);
     letter-spacing: .04em;
     line-height: 1;
@@ -69,13 +70,13 @@ img {
         margin-top: 2px;
     }
 
-/* ---------- NAVBAR (desktop default = fixed, solid) ---------- */
+/* ---------- NAVBAR (fixed) ---------- */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2000;
+    z-index: 3000; /* above hero overlay */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -137,16 +138,17 @@ img {
     color: var(--text-color);
     line-height: 1;
     margin-left: auto;
-    z-index: 2100;
+    z-index: 3100;
 }
 
-/* ---------- MOBILE NAV LAYOUT ---------- */
+/* ---------- MOBILE NAV ---------- */
 @media (max-width:900px) {
     .navbar {
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: .75rem;
+        z-index: 3000; /* above hero overlay */
     }
 
     .logo {
@@ -171,7 +173,7 @@ img {
         padding: .5rem 0;
         min-width: 220px;
         border-radius: 10px;
-        z-index: 2050;
+        z-index: 3050;
         visibility: hidden;
         opacity: 0;
         transform: translateY(-8px);
@@ -190,7 +192,6 @@ img {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
-            transition: opacity .2s ease, transform .2s ease;
         }
 
     .logo img {
@@ -279,31 +280,41 @@ img {
     }
 }
 
-/* ---------- MOBILE: luxury first view (hero fills screen, transparent navbar) ---------- */
+/* ---------- MOBILE: LUX INTRO (hero-only on load) ---------- */
 @media (max-width:768px) {
+    /* First load: hero fills the screen; navbar transparent on top of hero */
     body {
         padding-top: 0;
     }
-    /* no offset initially */
+
     .hero-slideshow {
         height: 100vh;
     }
-    /* full screen hero */
+
     .navbar {
-        position: absolute; /* sit on top of hero */
+        position: absolute;
         background: transparent;
         box-shadow: none;
     }
+        /* White brand/burger/links over the photo */
+        .brand-text, .menu-toggle, .navbar .nav-links a {
+            color: #fff;
+        }
 
-    .brand-text, .nav-links a {
-        color: #fff;
-    }
-    /* white text on hero */
-    .menu-toggle {
-        color: #fff;
-    }
+        /* Dark dropdown panel for readability over hero */
+        .navbar .nav-links {
+            right: 1rem;
+            background: rgba(0,0,0,.92) !important;
+            border: none !important;
+            box-shadow: 0 10px 24px rgba(0,0,0,.35) !important;
+            backdrop-filter: blur(4px);
+        }
 
-    /* After scroll: body gets .nav-solid via JS */
+            .navbar .nav-links a:hover {
+                background: rgba(255,255,255,.1) !important;
+            }
+
+    /* After tiny scroll the navbar becomes solid & fixed */
     body.nav-solid {
         padding-top: var(--nav-h);
     }
@@ -314,13 +325,19 @@ img {
             box-shadow: 0 2px 10px rgba(0,0,0,.05);
         }
 
-        body.nav-solid .brand-text {
-            color: #000;
-        }
+            body.nav-solid .brand-text,
+            body.nav-solid .menu-toggle,
+            body.nav-solid .navbar .nav-links a {
+                color: var(--text-color);
+            }
 
-        body.nav-solid .menu-toggle {
-            color: var(--text-color);
-        }
+            /* Dropdown on solid navbar goes back to light panel */
+            body.nav-solid .navbar .nav-links {
+                background: var(--bg-color) !important;
+                border: 1px solid rgba(0,0,0,.06) !important;
+                box-shadow: 0 10px 24px rgba(0,0,0,.10) !important;
+                backdrop-filter: none;
+            }
 }
 
 /* ---------- SPECIALS ---------- */
@@ -337,7 +354,7 @@ img {
 
 .specials-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, minmax(240px,1fr));
     gap: clamp(1.25rem,3vw,3rem);
     max-width: 1200px;
     margin: 0 auto;
@@ -356,7 +373,7 @@ img {
     }
 
     .special-item h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Playfair Display',serif;
         font-size: clamp(1.1rem,2.6vw,1.5rem);
         font-weight: 700;
         font-style: italic;
