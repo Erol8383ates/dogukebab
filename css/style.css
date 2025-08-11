@@ -19,11 +19,13 @@ body.dark {
 * {
     box-sizing: border-box
 }
-html, body {
-    overflow-x: hidden;
-}
+
 html {
     scroll-behavior: smooth
+}
+
+html, body {
+    overflow-x: hidden
 }
 
 body {
@@ -132,8 +134,8 @@ img {
     cursor: pointer;
     color: var(--text-color);
     line-height: 1;
-    margin-left: auto; /* pushes it to the far right */
-    z-index: 1001; /* above dropdown */
+    margin-left: auto;
+    z-index: 1001;
 }
 
 /* ---------- MOBILE LAYOUT ---------- */
@@ -156,7 +158,7 @@ img {
         justify-self: end;
     }
 
-    /* Turn nav into right-anchored dropdown */
+    /* Right-anchored dropdown */
     .nav-links {
         position: absolute;
         top: 100%;
@@ -170,7 +172,6 @@ img {
         min-width: 220px;
         border-radius: 10px;
         z-index: 1000;
-        /* hidden by default on mobile */
         visibility: hidden;
         opacity: 0;
         transform: translateY(-8px);
@@ -197,12 +198,6 @@ img {
 
     .brand-text {
         font-size: clamp(1.2rem,4.5vw,1.6rem);
-    }
-}
-
-@media (max-width:380px) {
-    .nav-links a {
-        font-size: .95rem;
     }
 }
 
@@ -257,21 +252,30 @@ img {
     text-decoration: none;
     font-weight: 600;
 }
-@media (max-width: 768px) {
+
+/* --- HERO mobile fix: tek blok --- */
+@media (max-width:768px) {
     .hero-slideshow {
-        height: 65vh; /* sabit, kayma yok */
+        height: 65svh; /* stabil yükseklik (svh = safe) */
         max-width: 100%;
-        overflow: hidden; /* olası taşmaları kes */
+        overflow: hidden; /* taşma yok */
     }
 
         .hero-slideshow::before {
             left: 0;
-            right: 0; /* tam genişlik */
+            right: 0;
+            top: 0;
+            bottom: 0;
             width: 100%;
+            height: 100%;
             background-size: cover;
             background-position: center;
-            transform: none; /* güvence için */
+            transform: none;
         }
+
+    .hero-overlay {
+        touch-action: pan-y;
+    }
 }
 
 @keyframes slideShow {
@@ -414,12 +418,8 @@ img {
     }
 }
 
+/* Mobile gallery & small tweaks */
 @media (max-width:768px) {
-    .hero-slideshow {
-        height: auto;
-        min-height: 65vh;
-    }
-
     .hero-content .btn {
         padding: .6rem 1.1rem;
         font-size: .95rem;
