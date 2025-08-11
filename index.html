@@ -11,11 +11,8 @@
     <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-    <!-- Swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=6" />
+    <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 
 <body>
@@ -75,18 +72,28 @@
         </div>
     </section>
 
-    <!-- Gallery Slider (Swiper) -->
+    <!-- Gallery: kütüphanesiz, kesintisiz yavaş kayan şerit -->
     <section class="gallery-strip" data-aos="fade-left">
-        <div class="swiper gallery-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/hero1.jpg" alt="Gallery 1"></div>
-                <div class="swiper-slide"><img src="images/hero2.jpg" alt="Gallery 2"></div>
-                <div class="swiper-slide"><img src="images/hero3.jpg" alt="Gallery 3"></div>
-                <div class="swiper-slide"><img src="images/dish1.jpg" alt="Gallery 4"></div>
-                <div class="swiper-slide"><img src="images/dish2.jpg" alt="Gallery 5"></div>
-                <div class="swiper-slide"><img src="images/dish3.jpg" alt="Gallery 6"></div>
-                <div class="swiper-slide"><img src="images/dish4.jpg" alt="Gallery 7"></div>
-                <div class="swiper-slide"><img src="images/dishes10.png" alt="Gallery 8"></div>
+        <div class="gallery-marquee">
+            <div class="track">
+                <!-- SET 1 -->
+                <img src="images/hero1.jpg" alt="Gallery 1">
+                <img src="images/hero2.jpg" alt="Gallery 2">
+                <img src="images/hero3.jpg" alt="Gallery 3">
+                <img src="images/dish1.jpg" alt="Gallery 4">
+                <img src="images/dish2.jpg" alt="Gallery 5">
+                <img src="images/dish3.jpg" alt="Gallery 6">
+                <img src="images/dish4.jpg" alt="Gallery 7">
+                <img src="images/dishes10.png" alt="Gallery 8">
+                <!-- SET 2 (aynı görselleri tekrar ederek düzgün loop sağlıyoruz) -->
+                <img src="images/hero1.jpg" alt="Gallery 1 duplicate">
+                <img src="images/hero2.jpg" alt="Gallery 2 duplicate">
+                <img src="images/hero3.jpg" alt="Gallery 3 duplicate">
+                <img src="images/dish1.jpg" alt="Gallery 4 duplicate">
+                <img src="images/dish2.jpg" alt="Gallery 5 duplicate">
+                <img src="images/dish3.jpg" alt="Gallery 6 duplicate">
+                <img src="images/dish4.jpg" alt="Gallery 7 duplicate">
+                <img src="images/dishes10.png" alt="Gallery 8 duplicate">
             </div>
         </div>
     </section>
@@ -107,27 +114,8 @@
         </div>
     </footer>
 
-    <!-- JS -->
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        AOS.init();
-        new Swiper(".gallery-swiper", {
-            loop: true,
-            speed: 600,
-            autoplay: {
-                delay: 2000,
-                disableOnInteraction: false,
-            },
-            spaceBetween: 16,
-            slidesPerView: 5,          // default (desktop)
-            breakpoints: {
-                0: { slidesPerView: 2.2, spaceBetween: 12 },  // mobile
-                480: { slidesPerView: 3, spaceBetween: 12 },
-                768: { slidesPerView: 4, spaceBetween: 14 },
-                1024: { slidesPerView: 5, spaceBetween: 16 }
-            }
-        });
-    </script>
+    <script>AOS.init();</script>
 </body>
 </html>
