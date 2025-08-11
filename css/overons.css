@@ -1,43 +1,63 @@
-/* Hero Sectie */
+/* ================== OVER ONS (FULL) ================== */
+
+/* ---------- HERO ---------- */
 .hero {
-    height: 85vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/hero4.jpg') center/cover no-repeat fixed;
-    color: white;
-    display: flex;
     position: relative;
+    height: 85vh;
+    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('../images/hero4.jpg') center/cover no-repeat;
+    color: #fff;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 2rem;
+    background-attachment: scroll;
 }
 
     .hero h1 {
         font-size: 3rem;
+        font-family: 'Playfair Display', serif;
+        margin: 0 0 .6rem;
     }
 
     .hero p {
         font-size: 1.2rem;
-        margin-top: 1rem;
+        margin: 0;
     }
 
+@media (max-width:768px) {
+    .hero {
+        height: 100vh;
+        min-height: 100svh;
+        background-position: center 30%;
+        padding: 2rem 1.25rem;
+    }
 
+        .hero h1 {
+            font-size: 2.4rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+        }
+}
+
+/* ---------- TEAM (lux) ---------- */
 .team-luxury-section {
     position: relative;
-    padding: 6rem 2rem;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../images/hero4.jpg') center/cover no-repeat fixed;
-    color: white;
+    padding: clamp(3rem,6vw,6rem) 2rem;
+    background: linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.40)), url('../images/hero4.jpg') center/cover no-repeat;
+    color: #fff;
     overflow: hidden;
 }
 
     .team-luxury-section .team-bg-overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         background: url('../images/team-bg.jpg') center/cover no-repeat;
-        opacity: 0.25;
-        z-index: 0;
+        opacity: .25;
         filter: blur(2px);
+        z-index: 0;
     }
 
 .team-heading {
@@ -45,44 +65,33 @@
     font-size: 3rem;
     font-family: 'Playfair Display', serif;
     color: #fff4ec;
-    margin-bottom: 4rem;
+    margin: 0 0 2.5rem;
     position: relative;
     z-index: 1;
 }
 
 .team-carousel {
-    display: flex;
-    gap: 2.5rem;
-    justify-content: center;
-    overflow-x: auto;
-    padding-bottom: 2rem;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.6rem;
+    align-items: stretch;
 }
 
-    .team-carousel::-webkit-scrollbar {
-        display: none;
-    }
-
 .team-member-card {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0,0,0,.35);
     border-radius: 20px;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 35px rgba(0,0,0,.28);
     text-align: center;
-    padding: 2rem;
-    min-width: 280px;
-    scroll-snap-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 2;
+    padding: 1.8rem 1.4rem;
     backdrop-filter: blur(10px);
+    transition: transform .3s ease, box-shadow .3s ease;
 }
 
     .team-member-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        transform: translateY(-6px);
+        box-shadow: 0 18px 45px rgba(0,0,0,.36);
     }
 
     .team-member-card img {
@@ -91,49 +100,53 @@
         border-radius: 50%;
         object-fit: cover;
         border: 4px solid gold;
-        margin-bottom: 1rem;
-        transition: transform 0.3s ease;
+        display: block;
+        margin: 0 auto 1rem;
+        transition: transform .3s ease;
     }
 
     .team-member-card:hover img {
-        transform: scale(1.07);
+        transform: scale(1.06);
     }
 
     .team-member-card h4 {
-        font-size: 1.4rem;
+        margin: .5rem 0 0;
+        font-size: 1.25rem;
         color: #fff;
-        margin: 0.5rem 0 0;
-        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
     }
 
     .team-member-card .badge {
         background: gold;
         color: #2d2d2d;
-        font-size: 0.75rem;
-        padding: 0.3rem 0.6rem;
+        font-size: .75rem;
+        padding: .3rem .6rem;
         border-radius: 12px;
-        margin-left: 0.5rem;
     }
 
     .team-member-card .role {
-        color: #ddd;
+        color: #eaeaea;
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        margin: .35rem 0 .25rem;
     }
 
     .team-member-card blockquote {
         font-style: italic;
-        color: #f0f0f0;
-        font-size: 0.95rem;
-        margin-top: 1rem;
-        padding: 0 1rem;
+        color: #f5f5f5;
+        font-size: .98rem;
+        margin: 1rem auto 0;
+        max-width: 28ch;
+        line-height: 1.5;
     }
 
 .blur-circle {
     position: absolute;
     width: 100px;
     height: 100px;
-    background: rgba(255, 215, 0, 0.15);
+    background: rgba(255,215,0,.18);
     filter: blur(45px);
     z-index: 0;
     border-radius: 50%;
@@ -154,64 +167,145 @@
     right: 20px;
 }
 
-@media (max-width: 768px) {
-    .team-carousel {
-        flex-direction: column;
-        align-items: center;
+@media (max-width:768px) {
+    .team-member-card {
+        padding: 1.4rem 1.1rem;
+    }
+
+    .blur-circle {
+        display: none;
+    }
+
+    .team-heading {
+        font-size: 2.4rem;
     }
 }
 
-/* Waarom Wij */
+/* ---------- WAAROM WIJ (revamped) ---------- */
 .waaromwij {
-    padding: 4rem 2rem;
+    padding: clamp(2.5rem,5vw,4rem) clamp(1.25rem,3vw,2rem);
     background: #f9f9f9;
     text-align: center;
 }
 
     .waaromwij h2 {
         font-size: 2.5rem;
-        margin-bottom: 2rem;
+        margin: 0 0 2rem;
+        font-family: 'Playfair Display', serif;
     }
 
+/* Grid yerleşim: sol kartlar | görsel | sağ kartlar */
 .why-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Sol / sağ kolonlar dikey yığın */
 .why-col {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    flex: 1;
-    min-width: 250px;
+    display: grid;
+    gap: clamp(1rem,1.6vw,1.25rem);
+    align-content: start;
 }
 
-.why-card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-    .why-card img {
-        width: 40px;
-        margin-bottom: 1rem;
-    }
-
+/* Orta görsel */
 .why-image {
-    flex: 1;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
     .why-image img {
-        max-width: 90%;
-        border-radius: 15px;
+        width: 100%;
+        max-width: 520px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.08);
     }
 
+/* Kartlar – eş yükseklik & içerik ortalı */
+.why-card {
+    background: #fff;
+    padding: 1.4rem 1.25rem;
+    border-radius: 14px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.06);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+}
+
+    .why-card img {
+        width: 48px;
+        height: 48px;
+        object-fit: contain;
+        margin-bottom: .75rem;
+        /* daire arka plan */
+        background: #fffaf5;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,.06) inset, 0 4px 10px rgba(0,0,0,.03);
+    }
+
+    .why-card h3 {
+        font-size: 1.15rem;
+        margin: .25rem 0 .35rem;
+        font-weight: 700;
+    }
+
+    .why-card p {
+        font-size: .98rem;
+        line-height: 1.55;
+        margin: 0;
+        color: #444;
+        max-width: 36ch;
+    }
+
+/* Tablet: 2 kolon (görsel 1, kartlar 1) */
+@media (max-width:1024px) {
+    .why-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .why-image {
+        grid-column: 1 / -1;
+        order: -1;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Mobile: tek kolon; temiz aralıklar */
+@media (max-width:768px) {
+    .waaromwij {
+        padding: 2rem 1.25rem;
+    }
+
+    .why-container {
+        grid-template-columns: 1fr;
+    }
+
+    .why-image {
+        order: -1;
+        margin-bottom: .5rem;
+    }
+
+    .why-card {
+        min-height: auto;
+        padding: 1.1rem;
+    }
+
+        .why-card img {
+            width: 44px;
+            height: 44px;
+            margin-bottom: .6rem;
+        }
+}
+
+/* ---------- FAVORI SLIDER ---------- */
 .favorites {
     background: #fffaf5;
     text-align: center;
@@ -232,14 +326,14 @@
 
 .favorites .swiper-slide {
     width: 300px;
-    background: white;
+    background: #fff;
     border-radius: 12px;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 24px rgba(0,0,0,.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    transition: transform 0.3s ease;
+    transition: transform .3s ease;
 }
 
     .favorites .swiper-slide:hover {
@@ -264,34 +358,32 @@
     margin-top: 1.5rem;
 }
 
-.favorites .swiper-button-next,
-.favorites .swiper-button-prev {
+.favorites .swiper-button-next, .favorites .swiper-button-prev {
     color: #e2785e;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-    color: #e2785e; /* or any accent color */
+.swiper-button-next, .swiper-button-prev {
+    color: #e2785e;
 }
-
 
 .favorites .btn {
     margin-top: 2rem;
     display: inline-block;
     background: #e2785e;
-    color: white;
-    padding: 0.8rem 1.5rem;
+    color: #fff;
+    padding: .8rem 1.5rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: background .3s;
 }
 
     .favorites .btn:hover {
         background: #c25e48;
     }
-/* Media Queries */
-@media (max-width: 900px) {
+
+/* ---------- EXTRA MQ ---------- */
+@media (max-width:900px) {
     .team-intro {
         flex-direction: column;
         text-align: center;
@@ -303,11 +395,5 @@
 
     .intro-right {
         text-align: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .why-container {
-        flex-direction: column;
     }
 }

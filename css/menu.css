@@ -12,7 +12,7 @@ body {
     color: var(--text-color);
 }
 
-/* HERO SECTION */
+/* ========== HERO SECTION ========== */
 .menu-hero {
     position: relative;
     height: 85vh;
@@ -20,7 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* taşmayı engeller */
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -30,10 +30,9 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* was center */
+    justify-content: flex-start; /* desktop: başlık üstte */
     text-align: center;
-    padding-top: 12vh; /* yazıyı yukarı taşır */
-   
+    padding-top: 12vh;
 }
 
 .menu-hero-content {
@@ -41,10 +40,9 @@ body {
     z-index: 2;
 }
 
-    /* biraz daha sıkı tipografi */
     .menu-hero-content h1 {
         font-size: 3rem;
-        margin: 0 0 .6rem; /* daha az boşluk */
+        margin: 0 0 .6rem;
         font-family: 'Playfair Display', serif;
     }
 
@@ -53,12 +51,16 @@ body {
         margin-bottom: 1.6rem;
     }
 
-/* FILTER BUTTONS */
+/* ========== FILTER BUTTONS ========== */
 .menu-filter {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    /* hero'dan taşındığında boşluk versin */
+    margin: 2rem auto 0;
+    padding: 0 1rem;
+    max-width: 720px;
 }
 
 .filter-btn {
@@ -78,7 +80,7 @@ body {
         color: white;
     }
 
-/* MENU GRID */
+/* ========== MENU GRID ========== */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -129,15 +131,33 @@ body {
         font-size: 1rem;
     }
 
-/* RESPONSIVE */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
+    /* Mobilde ilk görünüm tam ekran hero — sadece başlık & altbaşlık */
     .menu-hero {
-        height: 60vh;
-        padding-bottom: 2rem;
+        height: 100vh;
+        padding-bottom: 0;
+    }
+
+    .hero-overlay {
+        justify-content: center; /* başlık ortada */
+        padding-top: 0;
     }
 
     .menu-hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+    }
+
+    .menu-hero-content p {
+        font-size: 1.05rem;
+    }
+
+    /* Filtre butonlarını mobilde hero DIŞINA taşıyacağız (JS ile) — burada sadece görünüm */
+    .menu-filter {
+        flex-direction: column;
+        gap: .6rem;
+        max-width: 560px;
+        margin-top: 1.5rem; /* hero'nun altında nefes */
     }
 
     .menu-grid {
@@ -145,14 +165,7 @@ body {
     }
 
     .filter-btn {
-        font-size: 0.9rem;
-        padding: 0.4rem 1rem;
-    }
-    .hero-overlay {
-        padding-top: 10vh;
-    }
-    .menu-filter {
-        flex-direction: column;
-        gap: 0.6rem;
+        font-size: 0.95rem;
+        padding: .6rem 1.1rem;
     }
 }

@@ -1,4 +1,8 @@
-/* ---------- BASIS ---------- */
+/* ===========================
+   Reserveren (Updated, Mobile-safe)
+   =========================== */
+
+/* ---------- THEME ---------- */
 :root {
     --gold: #d4af37;
     --gold-light: #f5e9c9;
@@ -6,33 +10,47 @@
     --bg-overlay: rgba(255,255,255,.85);
     --btn-dark: #8b6f1c;
     --popup-bg: #fffdf5;
+    --nav-h: 76px; /* global header yüksekliği ile uyumlu */
+}
+
+/* ---------- BASE ---------- */
+html, body {
+    overflow-x: hidden; /* yatay taşmaları kes, çift scrollbar önle */
 }
 
 html {
     scroll-behavior: smooth;
 }
-/* smooth anchor scrolling */
+
 body {
     margin: 0;
-    font-family: 'Inter',sans-serif;
-    background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1920&q=80') center/cover fixed no-repeat;
-    background-color: #fdfaf5;
+    font-family: 'Inter', sans-serif;
+    /* ÇİFT SCROLL’U TETİKLEYEN fixed background KALDIRILDI */
+    background: #fdfaf5 url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     color: var(--text-color);
-    backdrop-filter: blur(3px);
+    /* backdrop-filter mobilde ekstra layer ve performans sorunlarına yol açabiliyor; gerekirse aç */
+    /* backdrop-filter: blur(3px); */
+}
+
+/* Header daima en üstte kalsın (globalde zaten fixed; burada z-index’i garanti edelim) */
+.navbar {
+    z-index: 4000 !important;
 }
 
 /* ---------- HERO ---------- */
 .reserveren-hero {
-    height: 85vh;
-    background: url('https://images.unsplash.com/photo-1600891964509-0c9f98b9d232?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     position: relative;
+    height: 85vh;
+    min-height: 560px;
+    background: url('https://images.unsplash.com/photo-1600891964509-0c9f98b9d232?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     overflow: hidden;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    /* subtle vignette for premium feel */
+    z-index: 1; /* header’ın altında, içerikten daha düşük */
+    /* premium vignette */
     background: radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.33) 80%, rgba(0,0,0,.22) 100%);
     display: flex;
     align-items: center;
@@ -41,6 +59,8 @@ body {
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     color: #fff;
     padding: 2rem;
     max-width: 1000px;
@@ -61,7 +81,7 @@ body {
         opacity: .95;
     }
 
-/* Gold pill CTA */
+/* CTA */
 .cta-scroll {
     display: inline-block;
     background: linear-gradient(180deg, #e6d386, #caa94b);
@@ -83,7 +103,7 @@ body {
         transform: translateY(0);
     }
 
-/* Small chevron hint */
+/* küçük ok */
 .scroll-chevron {
     display: block;
     width: 16px;
@@ -113,15 +133,15 @@ body {
     }
 }
 
-/* ---------- FORMULIER ---------- */
+/* ---------- FORM SECTION ---------- */
 .reserveren-form-section {
     background: var(--bg-overlay);
     padding: 4rem 2rem;
     max-width: 1000px;
-    margin: -5rem auto 0;
+    margin: -5rem auto 0; /* hero’nun içine yumuşak bindirme */
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    scroll-margin-top: 96px; /* anchor offset = sticky header */
+    scroll-margin-top: var(--nav-h); /* anchor offset */
 }
 
 .form-wrapper h2 {
@@ -153,7 +173,9 @@ body {
         font-weight: 500;
     }
 
-    .form-group input, .form-group select, .form-group textarea {
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
         padding: .75rem 1rem;
         border: 1px solid #d3c5a0;
         border-radius: 6px;
@@ -244,7 +266,7 @@ body {
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 5000;
 }
 
     .popup-overlay.active {
@@ -277,8 +299,43 @@ body {
         cursor: pointer;
     }
 
-/* ---------- RESPONSIVE ---------- */
+/* ---------- MOBILE ---------- */
 @media (max-width: 860px) {
+    /* Hero tam ekran: alttaki beyaz boşluk kaybolur */
+    .reserveren-hero {
+        height: 100svh; /* iOS/Android güvenli viewport */
+        min-height: 100svh;
+    }
+
+    /* Header şeffaf hero üstünde — hamburger görünürlük garantisi */
+    body:not(.nav-solid) .menu-toggle {
+        color: var(--gold) !important;
+        text-shadow: 0 0 2px rgba(0,0,0,.55), 0 0 8px rgba(0,0,0,.35);
+    }
+
+    body.nav-solid .menu-toggle {
+        color: var(--text-color) !important;
+        text-shadow: none;
+    }
+
+    /* Brand yazısı hero üstünde beyaz; aşağıda koyu */
+    body:not(.nav-solid) .brand-text {
+        color: #fff !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,.55);
+    }
+
+    body.nav-solid .brand-text {
+        color: var(--text-color) !important;
+        text-shadow: none;
+    }
+
+    /* Form bindirmesini mobilde biraz azalt – ilk görünüm daha temiz */
+    .reserveren-form-section {
+        margin: -3rem auto 0;
+        border-radius: 16px;
+        padding: 3rem 1.5rem;
+    }
+
     .hero-content h1 {
         font-size: clamp(2rem, 7vw, 2.6rem);
     }
