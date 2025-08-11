@@ -1,32 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Delizioso - Fine Dining & Cuisine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style.css?v=2">
-    <script src="js/script.js?v=2" defer></script>
+    <title>Dogu Kebab – Fine Dining & Cuisine</title>
 
+    <!-- Fonts & AOS -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=3" />
+
+    <!-- Script (your file, optional) -->
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <!-- NAVBAR -->
+    <!-- Header / Navbar -->
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
-            <img src="images/logo.png" alt="Dogu Kebab logo">
-            <span class="brand-divider" aria-hidden="true"></span>
-            <span class="brand-text" aria-hidden="true">
-                <span class="line1">DOGU</span>
-                <span class="line2">KEBAB</span>
-            </span>
+            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <span class="brand-text">Dogu&nbsp;Kebab</span>
         </a>
 
         <!-- Hamburger -->
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+        <button class="menu-toggle"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="site-nav"
+                onclick="
+        var n=document.getElementById('site-nav');
+        var b=this;
+        if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}
+      ">
+            &#9776;
+        </button>
 
+        <!-- Desktop links / Mobile dropdown -->
         <nav class="nav-links" id="site-nav">
             <a href="index.html" class="active">Home</a>
             <a href="overons.html">Over Ons</a>
@@ -54,19 +65,19 @@
                 <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon1.png" alt="Eten icoon" />
                 <h3>Eten</h3>
                 <div class="divider"></div>
-                <p>Authentieke Turkse gerechten in Lier <br>Since 1997.</p>
+                <p>Authentieke Turkse gerechten in Lier <br />Since 1997.</p>
             </div>
             <div class="special-item">
                 <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon2.png" alt="Dessert icoon" />
                 <h3>Desserts</h3>
                 <div class="divider"></div>
-                <p>Baklava, Künefe en andere lekkernijen<br>uit de Turkse en Belgische keuken.</p>
+                <p>Baklava, Künefe en andere lekkernijen<br />uit de Turkse en Belgische keuken.</p>
             </div>
             <div class="special-item">
                 <img src="https://cdn-icons-png.flaticon.com/512/3075/3075975.png" alt="Drinken icoon" />
                 <h3>Drinken</h3>
                 <div class="divider"></div>
-                <p>Frisdranken, warme dranken, bier, cocktails<br>en wijnen.</p>
+                <p>Frisdranken, warme dranken, bier, cocktails<br />en wijnen.</p>
             </div>
         </div>
     </section>
@@ -74,16 +85,16 @@
     <!-- Gallery Strip -->
     <section class="gallery-strip" data-aos="fade-left">
         <div class="gallery-track">
-            <img src="images/hero1.jpg" alt="Gallery 1">
-            <img src="images/hero2.jpg" alt="Gallery 2">
-            <img src="images/hero3.jpg" alt="Gallery 3">
-            <img src="images/dish1.jpg" alt="Gallery 4">
-            <img src="images/dish2.jpg" alt="Gallery 5">
-            <img src="images/dish3.jpg" alt="Gallery 6">
-            <img src="images/dish4.jpg" alt="Gallery 7">
-            <img src="images/dish1.jpg" alt="Gallery 8">
-            <img src="images/dishes10.png" alt="Gallery 9">
-            <img src="images/dish3.jpg" alt="Gallery 10">
+            <img src="images/hero1.jpg" alt="Gallery 1" />
+            <img src="images/hero2.jpg" alt="Gallery 2" />
+            <img src="images/hero3.jpg" alt="Gallery 3" />
+            <img src="images/dish1.jpg" alt="Gallery 4" />
+            <img src="images/dish2.jpg" alt="Gallery 5" />
+            <img src="images/dish3.jpg" alt="Gallery 6" />
+            <img src="images/dish4.jpg" alt="Gallery 7" />
+            <img src="images/dish1.jpg" alt="Gallery 8" />
+            <img src="images/dishes10.png" alt="Gallery 9" />
+            <img src="images/dish3.jpg" alt="Gallery 10" />
         </div>
     </section>
 
@@ -103,11 +114,8 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-    <script src="js/script.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>

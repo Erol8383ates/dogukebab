@@ -32,15 +32,23 @@ body {
     transition: background .3s,color .3s;
 }
 
+/* Global responsive images */
+img {
+    max-width: 100%;
+    height: auto
+}
+
 /* ---------- BRAND TEXT ---------- */
 .brand-text {
     font-family: 'Great Vibes',cursive;
-    font-size: clamp(1.6rem,3.5vw,2.5rem);
-    color: #000;
-    letter-spacing: .05em;
+    font-size: clamp(1.3rem,3.6vw,2rem);
+    letter-spacing: .04em;
     line-height: 1;
-    display: flex;
-    flex-direction: column;
+    white-space: nowrap;
+    color: #000;
+    margin-left: .6rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
     .brand-text .line1 {
@@ -60,6 +68,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 999;
+    position: relative; /* anchor for dropdown */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,7 +81,6 @@ body {
 .logo {
     display: flex;
     align-items: center;
-    gap: clamp(10px,1.5vw,16px);
     text-decoration: none;
     color: inherit;
     min-width: 0;
@@ -87,17 +95,10 @@ body {
         box-shadow: 0 1px 4px rgba(0,0,0,.18);
     }
 
-.brand-divider {
-    width: 1px;
-    height: clamp(34px,6vw,50px);
-    background: rgba(197,164,109,.6);
-}
-
 .nav-links {
     display: flex;
     align-items: center;
-    gap: clamp(.6rem,2vw,2rem);
-    flex-wrap: nowrap;
+    gap: clamp(.6rem,2vw,1.6rem);
     white-space: nowrap;
 }
 
@@ -120,53 +121,84 @@ body {
             color: var(--brand-gold);
         }
 
-/* Hamburger button (hidden on desktop) */
+/* Hamburger (hidden on desktop) */
 .menu-toggle {
     display: none;
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     background: none;
     border: 0;
     cursor: pointer;
     color: var(--text-color);
+    line-height: 1;
+    margin-left: auto; /* pushes it to the far right */
+    z-index: 1001; /* above dropdown */
 }
 
-/* Mobile layout */
-@media (max-width: 900px) {
+/* ---------- MOBILE LAYOUT ---------- */
+@media (max-width:900px) {
+    /* Grid header: logo | spacer | burger */
     .navbar {
-        flex-wrap: wrap;
-        row-gap: .45rem;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: .75rem;
     }
 
-    .brand-divider, .brand-text {
-        display: none;
+    .logo {
+        grid-column: 1;
     }
 
     .menu-toggle {
         display: block;
+        grid-column: 3;
+        justify-self: end;
     }
 
-    /* collapsed menu */
+    /* Turn nav into right-anchored dropdown */
     .nav-links {
-        display: none;
-        width: 100%;
+        position: absolute;
+        top: 100%;
+        right: clamp(1rem,3vw,2.5rem);
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         background: var(--bg-color);
-        padding: .75rem 0;
-        border-top: 1px solid rgba(0,0,0,.06);
-        gap: .35rem;
+        border: 1px solid rgba(0,0,0,.06);
+        box-shadow: 0 10px 24px rgba(0,0,0,.10);
+        padding: .5rem 0;
+        min-width: 220px;
+        border-radius: 10px;
+        z-index: 1000;
+        /* hidden by default on mobile */
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: opacity .2s ease, transform .2s ease, visibility 0s .2s;
     }
+
+        .nav-links a {
+            display: block;
+            padding: .75rem 1rem;
+            width: 100%;
+        }
 
         .nav-links.show {
-            display: flex;
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity .2s ease, transform .2s ease;
         }
-}
 
-@media (max-width: 380px) {
+    /* tighter brand */
     .logo img {
-        height: 54px;
+        height: clamp(48px,7vw,60px);
     }
 
+    .brand-text {
+        font-size: clamp(1.2rem,4.5vw,1.6rem);
+    }
+}
+
+@media (max-width:380px) {
     .nav-links a {
         font-size: .95rem;
     }
@@ -242,7 +274,7 @@ body {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce) {
     .hero-slideshow::before {
         animation: none;
         background-image: url('../images/hero1.jpg');
@@ -358,14 +390,13 @@ body {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce) {
     .gallery-track {
         animation: none
     }
 }
 
-/* Mobile gallery becomes swipeable, no auto-scroll */
-@media (max-width: 768px) {
+@media (max-width:768px) {
     .hero-slideshow {
         height: auto;
         min-height: 65vh;
