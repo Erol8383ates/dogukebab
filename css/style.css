@@ -31,11 +31,11 @@ html, body {
 
 body {
     margin: 0;
-    font-family: 'Segoe UI',system-ui,-apple-system,Arial,sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
-    transition: background .3s,color .3s;
-    padding-top: var(--nav-h); /* Prevents fixed navbar from covering content */
+    transition: background .3s, color .3s, padding-top .3s;
+    padding-top: var(--nav-h); /* desktop: offset fixed navbar */
 }
 
 img {
@@ -46,7 +46,7 @@ img {
 
 /* ---------- BRAND TEXT ---------- */
 .brand-text {
-    font-family: 'Great Vibes',cursive;
+    font-family: 'Great Vibes', cursive;
     font-size: clamp(1.3rem,3.6vw,2rem);
     letter-spacing: .04em;
     line-height: 1;
@@ -69,9 +69,9 @@ img {
         margin-top: 2px;
     }
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVBAR (desktop default = fixed, solid) ---------- */
 .navbar {
-    position: fixed; /* Always visible */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -80,10 +80,10 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: clamp(.65rem,1.6vw,1rem) clamp(1rem,3vw,2.5rem);
+    height: var(--nav-h);
     background: var(--bg-color);
     box-shadow: 0 2px 10px rgba(0,0,0,.05);
     gap: 1rem;
-    height: var(--nav-h);
 }
 
 .logo {
@@ -116,7 +116,7 @@ img {
         padding: .45rem .35rem;
         border-radius: 6px;
         line-height: 1;
-        transition: color .2s,background .2s;
+        transition: color .2s, background .2s;
     }
 
         .nav-links a:hover {
@@ -140,13 +140,13 @@ img {
     z-index: 2100;
 }
 
+/* ---------- MOBILE NAV LAYOUT ---------- */
 @media (max-width:900px) {
     .navbar {
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: .75rem;
-        height: var(--nav-h);
     }
 
     .logo {
@@ -175,7 +175,7 @@ img {
         visibility: hidden;
         opacity: 0;
         transform: translateY(-8px);
-        transition: opacity .2s ease,transform .2s ease,visibility 0s .2s;
+        transition: opacity .2s ease, transform .2s ease, visibility 0s .2s;
         max-height: calc(100vh - var(--nav-h) - 16px);
         overflow-y: auto;
     }
@@ -254,21 +254,6 @@ img {
     font-weight: 600;
 }
 
-@media (max-width:768px) {
-    .hero-slideshow {
-        height: 65svh;
-        max-width: 100%;
-        overflow: hidden;
-    }
-
-        .hero-slideshow::before {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-}
-
 @keyframes slideShow {
     0% {
         background-image: url('../images/hero1.jpg');
@@ -292,6 +277,50 @@ img {
         animation: none;
         background-image: url('../images/hero1.jpg');
     }
+}
+
+/* ---------- MOBILE: luxury first view (hero fills screen, transparent navbar) ---------- */
+@media (max-width:768px) {
+    body {
+        padding-top: 0;
+    }
+    /* no offset initially */
+    .hero-slideshow {
+        height: 100vh;
+    }
+    /* full screen hero */
+    .navbar {
+        position: absolute; /* sit on top of hero */
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .brand-text, .nav-links a {
+        color: #fff;
+    }
+    /* white text on hero */
+    .menu-toggle {
+        color: #fff;
+    }
+
+    /* After scroll: body gets .nav-solid via JS */
+    body.nav-solid {
+        padding-top: var(--nav-h);
+    }
+
+        body.nav-solid .navbar {
+            position: fixed;
+            background: var(--bg-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,.05);
+        }
+
+        body.nav-solid .brand-text {
+            color: #000;
+        }
+
+        body.nav-solid .menu-toggle {
+            color: var(--text-color);
+        }
 }
 
 /* ---------- SPECIALS ---------- */
@@ -323,7 +352,6 @@ img {
         width: auto;
         height: 90px;
         object-fit: contain;
-        display: block;
         margin: 0 auto 1.2rem;
     }
 
@@ -361,19 +389,19 @@ img {
         margin: 0;
     }
 
-@media (max-width: 900px) {
+@media (max-width:900px) {
     .specials-grid {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        grid-template-columns: repeat(2, minmax(220px,1fr));
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width:560px) {
     .specials-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* ---------- GALLERY ---------- */
+/* ---------- GALLERY (marquee) ---------- */
 .gallery-strip {
     background: #eee;
     padding: 2rem 0;
@@ -405,11 +433,11 @@ img {
 
 @keyframes marquee {
     from {
-        transform: translateX(0);
+        transform: translateX(0)
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(-50%)
     }
 }
 
