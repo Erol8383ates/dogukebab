@@ -7,6 +7,7 @@
     --accent-color: #b22222;
     --footer-bg: #eae7e1;
     --brand-gold: #bfa06c;
+    --nav-h: 76px; /* desktop header height */
 }
 
 body.dark {
@@ -34,6 +35,7 @@ body {
     background: var(--bg-color);
     color: var(--text-color);
     transition: background .3s,color .3s;
+    padding-top: var(--nav-h); /* Prevents fixed navbar from covering content */
 }
 
 img {
@@ -69,10 +71,11 @@ img {
 
 /* ---------- NAVBAR ---------- */
 .navbar {
-    position: sticky;
+    position: fixed; /* Always visible */
     top: 0;
-    z-index: 999;
-    position: relative;
+    left: 0;
+    right: 0;
+    z-index: 2000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -80,6 +83,7 @@ img {
     background: var(--bg-color);
     box-shadow: 0 2px 10px rgba(0,0,0,.05);
     gap: 1rem;
+    height: var(--nav-h);
 }
 
 .logo {
@@ -133,7 +137,7 @@ img {
     color: var(--text-color);
     line-height: 1;
     margin-left: auto;
-    z-index: 1001;
+    z-index: 2100;
 }
 
 @media (max-width:900px) {
@@ -142,6 +146,7 @@ img {
         grid-template-columns: auto 1fr auto;
         align-items: center;
         gap: .75rem;
+        height: var(--nav-h);
     }
 
     .logo {
@@ -166,11 +171,13 @@ img {
         padding: .5rem 0;
         min-width: 220px;
         border-radius: 10px;
-        z-index: 1000;
+        z-index: 2050;
         visibility: hidden;
         opacity: 0;
         transform: translateY(-8px);
         transition: opacity .2s ease,transform .2s ease,visibility 0s .2s;
+        max-height: calc(100vh - var(--nav-h) - 16px);
+        overflow-y: auto;
     }
 
         .nav-links a {
@@ -183,6 +190,7 @@ img {
             visibility: visible;
             opacity: 1;
             transform: translateY(0);
+            transition: opacity .2s ease, transform .2s ease;
         }
 
     .logo img {
@@ -254,15 +262,10 @@ img {
     }
 
         .hero-slideshow::before {
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
             width: 100%;
             height: 100%;
             background-size: cover;
             background-position: center;
-            transform: none;
         }
 }
 
@@ -308,21 +311,20 @@ img {
     grid-template-columns: repeat(3, minmax(240px, 1fr));
     gap: clamp(1.25rem,3vw,3rem);
     max-width: 1200px;
-    margin: 0 auto; /* ortala */
-    align-items: start; /* başlıklar aynı hizada başlasın */
+    margin: 0 auto;
+    align-items: start;
 }
 
 .special-item {
-   
     padding: 1rem;
 }
 
     .special-item img {
         width: auto;
-        height: 90px; /* sabit yükseklik */
-        object-fit: contain; /* taşmadan sığdır */
+        height: 90px;
+        object-fit: contain;
         display: block;
-        margin: 0 auto 1.2rem; /* ortala + alttan boşluk */
+        margin: 0 auto 1.2rem;
     }
 
     .special-item h3 {
@@ -332,7 +334,6 @@ img {
         font-style: italic;
         margin: .5rem 0;
     }
-
 
     .special-item .divider {
         width: 100px;
@@ -359,6 +360,7 @@ img {
         line-height: 1.5;
         margin: 0;
     }
+
 @media (max-width: 900px) {
     .specials-grid {
         grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -371,25 +373,7 @@ img {
     }
 }
 
-/* ---------- CTA ---------- */
-.cta {
-    padding: clamp(2rem,5vw,3rem) clamp(1rem,4vw,2rem);
-    background: var(--accent-color);
-    color: #fff;
-    text-align: center;
-}
-
-    .cta .btn {
-        background: #fff;
-        color: var(--accent-color);
-        padding: .8rem 1.5rem;
-        border-radius: 5px;
-        text-decoration: none;
-        display: inline-block;
-        margin-top: 1rem;
-    }
-
-/* ---------- GALLERY (kütüphanesiz kayar şerit) ---------- */
+/* ---------- GALLERY ---------- */
 .gallery-strip {
     background: #eee;
     padding: 2rem 0;
@@ -404,7 +388,7 @@ img {
         display: flex;
         align-items: center;
         gap: 16px;
-        width: max-content; /* içerik kadar genişlik */
+        width: max-content;
         animation: marquee 40s linear infinite;
     }
 
@@ -413,23 +397,20 @@ img {
         border-radius: 10px;
         object-fit: cover;
         flex: 0 0 auto;
-        display: block;
     }
 
     .gallery-marquee:hover .track {
         animation-play-state: paused;
     }
-/* hover ile durdur */
 
 @keyframes marquee {
     from {
-        transform: translateX(0)
+        transform: translateX(0);
     }
 
     to {
-        transform: translateX(-50%)
+        transform: translateX(-50%);
     }
-    /* içerik iki kez eklendiği için yarısı kadar kaydırıyoruz */
 }
 
 @media (max-width:768px) {
@@ -482,41 +463,3 @@ img {
         color: var(--text-color);
         text-decoration: none;
     }
-/* ===== Sticky → Fixed navbar ===== */
-:root {
-    --nav-h: 76px; /* desktop header height */
-}
-
-.navbar {
-    position: fixed; /* was: sticky */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2000; /* always above hero & overlays */
-    height: var(--nav-h);
-    background: var(--bg-color);
-}
-
-/* push page content down so it's not under the fixed header */
-body {
-    padding-top: var(--nav-h);
-}
-
-/* Mobile header height */
-@media (max-width: 900px) {
-    :root {
-        --nav-h: 64px;
-    }
-}
-
-/* Mobile dropdown panel – ensure it stays attached to the fixed header
-   and never disappears under content while scrolling */
-@media (max-width:900px) {
-    .nav-links {
-        position: absolute; /* keep anchored to the fixed header */
-        top: 100%;
-        right: clamp(1rem,3vw,2.5rem);
-        max-height: calc(100dvh - var(--nav-h) - 16px);
-        overflow: auto;
-    }
-}
