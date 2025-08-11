@@ -19,7 +19,9 @@ body.dark {
 * {
     box-sizing: border-box
 }
-
+html, body {
+    overflow-x: hidden;
+}
 html {
     scroll-behavior: smooth
 }
@@ -254,6 +256,22 @@ img {
     border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
+}
+@media (max-width: 768px) {
+    .hero-slideshow {
+        height: 65vh; /* sabit, kayma yok */
+        max-width: 100%;
+        overflow: hidden; /* olası taşmaları kes */
+    }
+
+        .hero-slideshow::before {
+            left: 0;
+            right: 0; /* tam genişlik */
+            width: 100%;
+            background-size: cover;
+            background-position: center;
+            transform: none; /* güvence için */
+        }
 }
 
 @keyframes slideShow {
