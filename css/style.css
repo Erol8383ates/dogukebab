@@ -439,6 +439,30 @@ img {
         flex: 0 0 auto;
     }
 }
+/* ... önceki tüm CSS'in aynı şekilde devamı ... */
+
+/* ---------- GALLERY SWIPER ---------- */
+.gallery-strip {
+    background: #eee;
+    padding: 2rem 0;
+}
+
+.gallery-swiper {
+    width: 100%;
+}
+
+    .gallery-swiper img {
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+/* Responsive gallery images */
+@media (max-width: 768px) {
+    .gallery-swiper img {
+        height: 110px;
+    }
+}
 
 /* ---------- WHY US ---------- */
 .why-us {

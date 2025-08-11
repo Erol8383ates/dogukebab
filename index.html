@@ -5,39 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dogu Kebab – Fine Dining & Cuisine</title>
 
-    <!-- Fonts & AOS -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+
+    <!-- AOS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/style.css?v=4" />
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <!-- Your script (optional) -->
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css?v=5" />
+
     <script src="js/script.js" defer></script>
 </head>
 
 <body>
-    <!-- Header / Navbar -->
+    <!-- Navbar -->
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
             <img src="images/logo.png" alt="Dogu Kebab logo" />
             <span class="brand-text">Dogu&nbsp;Kebab</span>
         </a>
-
-        <!-- Hamburger -->
-        <button class="menu-toggle"
-                aria-label="Open menu"
-                aria-expanded="false"
-                aria-controls="site-nav"
-                onclick="
-        var n=document.getElementById('site-nav');
-        var b=this;
-        if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}
-      ">
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+                onclick="var n=document.getElementById('site-nav');var b=this;if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}">
             &#9776;
         </button>
-
-        <!-- Desktop links / Mobile dropdown -->
         <nav class="nav-links" id="site-nav">
             <a href="index.html" class="active">Home</a>
             <a href="overons.html">Over Ons</a>
@@ -47,7 +40,7 @@
         </nav>
     </header>
 
-    <!-- HERO -->
+    <!-- Hero -->
     <section class="hero-slideshow">
         <div class="hero-overlay">
             <div class="hero-content" data-aos="fade-up">
@@ -82,19 +75,19 @@
         </div>
     </section>
 
-    <!-- Gallery Strip -->
+    <!-- Gallery Slider -->
     <section class="gallery-strip" data-aos="fade-left">
-        <div class="gallery-track">
-            <img src="images/hero1.jpg" alt="Gallery 1" />
-            <img src="images/hero2.jpg" alt="Gallery 2" />
-            <img src="images/hero3.jpg" alt="Gallery 3" />
-            <img src="images/dish1.jpg" alt="Gallery 4" />
-            <img src="images/dish2.jpg" alt="Gallery 5" />
-            <img src="images/dish3.jpg" alt="Gallery 6" />
-            <img src="images/dish4.jpg" alt="Gallery 7" />
-            <img src="images/dish1.jpg" alt="Gallery 8" />
-            <img src="images/dishes10.png" alt="Gallery 9" />
-            <img src="images/dish3.jpg" alt="Gallery 10" />
+        <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/hero1.jpg" alt="Gallery 1"></div>
+                <div class="swiper-slide"><img src="images/hero2.jpg" alt="Gallery 2"></div>
+                <div class="swiper-slide"><img src="images/hero3.jpg" alt="Gallery 3"></div>
+                <div class="swiper-slide"><img src="images/dish1.jpg" alt="Gallery 4"></div>
+                <div class="swiper-slide"><img src="images/dish2.jpg" alt="Gallery 5"></div>
+                <div class="swiper-slide"><img src="images/dish3.jpg" alt="Gallery 6"></div>
+                <div class="swiper-slide"><img src="images/dish4.jpg" alt="Gallery 7"></div>
+                <div class="swiper-slide"><img src="images/dishes10.png" alt="Gallery 8"></div>
+            </div>
         </div>
     </section>
 
@@ -114,8 +107,23 @@
         </div>
     </footer>
 
-    <!-- AOS -->
+    <!-- JS Libraries -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init();
+
+        new Swiper(".gallery-swiper", {
+            slidesPerView: "auto",
+            spaceBetween: 16,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            freeMode: false,
+            centeredSlides: false
+        });
+    </script>
 </body>
 </html>
