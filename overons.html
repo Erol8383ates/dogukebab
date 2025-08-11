@@ -15,21 +15,23 @@
 </head>
 <body>
 
+    <!-- Navbar -->
     <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="images/logo.png" alt="Dogu Kebab">
-            <span class="brand-divider" aria-hidden="true"></span>
-            <span class="brand-text">
-                <span class="line1">DOGU</span>
-                <span class="line2">KEBAB</span>
-            </span>
+        <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
+            <img src="images/logo.png" alt="Dogu Kebab logo" />
+            <span class="brand-text">Dogu&nbsp;Kebab</span>
         </a>
 
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"
+                onclick="var n=document.getElementById('site-nav');var b=this;if(n){n.classList.toggle('show');b.setAttribute('aria-expanded', n.classList.contains('show')?'true':'false');}">
+            &#9776;
+        </button>
+
+        <nav class="nav-links" id="site-nav">
+            <a href="index.html" class="active">Home</a>
             <a href="overons.html">Over Ons</a>
             <a href="menu.html">Menu</a>
-            <a href="reserveren.html" class="active">Reserveren</a>
+            <a href="reserveren.html">Reserveren</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
