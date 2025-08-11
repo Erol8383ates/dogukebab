@@ -6,7 +6,7 @@
     --text-color: #1a1a1a;
     --accent-color: #b22222;
     --footer-bg: #eae7e1;
-    --brand-gold: #bfa06c; /* was referenced but not defined */
+    --brand-gold: #bfa06c;
 }
 
 body.dark {
@@ -32,7 +32,7 @@ body {
     transition: background .3s,color .3s;
 }
 
-/* ---------- BRAND TEXT (calligraphy) ---------- */
+/* ---------- BRAND TEXT ---------- */
 .brand-text {
     font-family: 'Great Vibes',cursive;
     font-size: clamp(1.6rem,3.5vw,2.5rem);
@@ -69,7 +69,6 @@ body {
     gap: 1rem;
 }
 
-/* Logo block */
 .logo {
     display: flex;
     align-items: center;
@@ -84,7 +83,7 @@ body {
         width: auto;
         display: block;
         border-radius: 10px;
-        filter: brightness(1.45) contrast(1.12) saturate(1.05); /* slightly softer on mobile */
+        filter: brightness(1.45) contrast(1.12) saturate(1.05);
         box-shadow: 0 1px 4px rgba(0,0,0,.18);
     }
 
@@ -94,7 +93,6 @@ body {
     background: rgba(197,164,109,.6);
 }
 
-/* Links */
 .nav-links {
     display: flex;
     align-items: center;
@@ -107,9 +105,9 @@ body {
         text-decoration: none;
         color: var(--text-color);
         font-weight: 600;
-        padding: .4rem .2rem; /* bigger touch target */
-        line-height: 1;
+        padding: .45rem .35rem;
         border-radius: 6px;
+        line-height: 1;
         transition: color .2s, background .2s;
     }
 
@@ -122,7 +120,17 @@ body {
             color: var(--brand-gold);
         }
 
-/* Wrap nicely on smaller widths WITHOUT hamburger */
+/* Hamburger button (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Mobile layout */
 @media (max-width: 900px) {
     .navbar {
         flex-wrap: wrap;
@@ -132,18 +140,28 @@ body {
     .brand-divider, .brand-text {
         display: none;
     }
-    /* keeps header compact */
-    .nav-links {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: .6rem 1rem;
-        padding-top: .2rem;
-        border-top: 1px solid rgba(0,0,0,.06);
+
+    .menu-toggle {
+        display: block;
     }
+
+    /* collapsed menu */
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        background: var(--bg-color);
+        padding: .75rem 0;
+        border-top: 1px solid rgba(0,0,0,.06);
+        gap: .35rem;
+    }
+
+        .nav-links.show {
+            display: flex;
+        }
 }
 
-/* Micro phones */
 @media (max-width: 380px) {
     .logo img {
         height: 54px;
@@ -206,7 +224,6 @@ body {
     font-weight: 600;
 }
 
-/* Slideshow keyframes */
 @keyframes slideShow {
     0% {
         background-image: url('../images/hero1.jpg');
@@ -225,32 +242,11 @@ body {
     }
 }
 
-/* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
     .hero-slideshow::before {
         animation: none;
         background-image: url('../images/hero1.jpg');
     }
-}
-
-/* ---------- INTRO ---------- */
-.intro .container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-    padding: clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);
-}
-
-.intro .text {
-    flex: 1 1 320px;
-    min-width: 260px;
-}
-
-.intro img {
-    flex: 1 1 320px;
-    max-width: 100%;
-    border-radius: 10px;
 }
 
 /* ---------- SPECIALS ---------- */
@@ -368,6 +364,33 @@ body {
     }
 }
 
+/* Mobile gallery becomes swipeable, no auto-scroll */
+@media (max-width: 768px) {
+    .hero-slideshow {
+        height: auto;
+        min-height: 65vh;
+    }
+
+    .hero-content .btn {
+        padding: .6rem 1.1rem;
+        font-size: .95rem;
+    }
+
+    .gallery-track {
+        animation: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 1rem;
+    }
+
+    .gallery-strip img {
+        height: 110px;
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+    }
+}
+
 /* ---------- WHY US ---------- */
 .why-us {
     padding: clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);
@@ -412,29 +435,3 @@ body {
         color: var(--text-color);
         text-decoration: none;
     }
-
-/* ---------- EXTRA MOBILE TWEAKS ---------- */
-@media (max-width: 768px) {
-    .hero-slideshow {
-        height: 70vh;
-    }
-
-    .hero-content .btn {
-        padding: .6rem 1.1rem;
-        font-size: .95rem;
-    }
-
-    .gallery-strip img {
-        height: 120px;
-    }
-}
-
-@media (max-width: 480px) {
-    .nav-links a {
-        padding: .45rem .3rem;
-    }
-
-    .special-item img {
-        width: 68px;
-    }
-}

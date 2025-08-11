@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delizioso - Fine Dining & Cuisine</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
-  <script defer src="js/script.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delizioso - Fine Dining & Cuisine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=2">
+    <script src="js/script.js?v=2" defer></script>
+
 </head>
-<!-- ... [keep <head> as before] ... -->
 
 <body>
+    <!-- NAVBAR -->
     <header class="navbar">
-        <a href="index.html" class="logo">
-            <img src="images/logo.png" alt="Dogu Kebab">
+        <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
+            <img src="images/logo.png" alt="Dogu Kebab logo">
             <span class="brand-divider" aria-hidden="true"></span>
-            <span class="brand-text">
+            <span class="brand-text" aria-hidden="true">
                 <span class="line1">DOGU</span>
                 <span class="line2">KEBAB</span>
             </span>
         </a>
 
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
+        <!-- Hamburger -->
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+
+        <nav class="nav-links" id="site-nav">
+            <a href="index.html" class="active">Home</a>
             <a href="overons.html">Over Ons</a>
             <a href="menu.html">Menu</a>
-            <a href="reserveren.html" class="active">Reserveren</a>
+            <a href="reserveren.html">Reserveren</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
-
-    <!-- Hero -->
+    <!-- HERO -->
     <section class="hero-slideshow">
         <div class="hero-overlay">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-up">
                 <h1>Welkom bij Dogu Kebab</h1>
                 <p>Waar gastronomie en sfeer samenkomen.</p>
                 <a href="reserveren.html" class="btn">Reserveer Nu</a>
@@ -43,31 +47,29 @@
         </div>
     </section>
 
+    <!-- Specials -->
     <section class="specials" data-aos="fade-up">
-
         <div class="specials-grid">
             <div class="special-item">
-                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon1.png" alt="Food" />
+                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon1.png" alt="Eten icoon" />
                 <h3>Eten</h3>
                 <div class="divider"></div>
                 <p>Authentieke Turkse gerechten in Lier <br>Since 1997.</p>
             </div>
             <div class="special-item">
-                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon2.png" alt="Dessert" />
+                <img src="https://sktperfectdemo.com/demos/bistro/wp-content/uploads/2018/03/icon2.png" alt="Dessert icoon" />
                 <h3>Desserts</h3>
                 <div class="divider"></div>
                 <p>Baklava, Künefe en andere lekkernijen<br>uit de Turkse en Belgische keuken.</p>
             </div>
             <div class="special-item">
-                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075975.png" alt="Drinks" />
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075975.png" alt="Drinken icoon" />
                 <h3>Drinken</h3>
                 <div class="divider"></div>
                 <p>Frisdranken, warme dranken, bier, cocktails<br>en wijnen.</p>
             </div>
         </div>
     </section>
-
-
 
     <!-- Gallery Strip -->
     <section class="gallery-strip" data-aos="fade-left">
@@ -77,11 +79,11 @@
             <img src="images/hero3.jpg" alt="Gallery 3">
             <img src="images/dish1.jpg" alt="Gallery 4">
             <img src="images/dish2.jpg" alt="Gallery 5">
-            <img src="images/dish3.jpg" alt="Gallery 5">
-            <img src="images/dish4.jpg" alt="Gallery 5">
-            <img src="images/dish1.jpg" alt="Gallery 5">
-            <img src="images/dishes10.png" alt="Gallery 5">
-            <img src="images/dish3.jpg" alt="Gallery 5">
+            <img src="images/dish3.jpg" alt="Gallery 6">
+            <img src="images/dish4.jpg" alt="Gallery 7">
+            <img src="images/dish1.jpg" alt="Gallery 8">
+            <img src="images/dishes10.png" alt="Gallery 9">
+            <img src="images/dish3.jpg" alt="Gallery 10">
         </div>
     </section>
 
@@ -101,7 +103,11 @@
         </div>
     </footer>
 
-    <!-- AOS -->
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="js/script.js"></script>
 </body>
+</html>
