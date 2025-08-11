@@ -482,3 +482,41 @@ img {
         color: var(--text-color);
         text-decoration: none;
     }
+/* ===== Sticky → Fixed navbar ===== */
+:root {
+    --nav-h: 76px; /* desktop header height */
+}
+
+.navbar {
+    position: fixed; /* was: sticky */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000; /* always above hero & overlays */
+    height: var(--nav-h);
+    background: var(--bg-color);
+}
+
+/* push page content down so it's not under the fixed header */
+body {
+    padding-top: var(--nav-h);
+}
+
+/* Mobile header height */
+@media (max-width: 900px) {
+    :root {
+        --nav-h: 64px;
+    }
+}
+
+/* Mobile dropdown panel – ensure it stays attached to the fixed header
+   and never disappears under content while scrolling */
+@media (max-width:900px) {
+    .nav-links {
+        position: absolute; /* keep anchored to the fixed header */
+        top: 100%;
+        right: clamp(1rem,3vw,2.5rem);
+        max-height: calc(100dvh - var(--nav-h) - 16px);
+        overflow: auto;
+    }
+}
