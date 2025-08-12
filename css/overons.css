@@ -3,7 +3,9 @@
 /* ---------- HERO ---------- */
 .hero {
     position: relative;
-    height: 90vh;
+    /* Full viewport minus fixed navbar on desktop */
+    height: calc(100vh - var(--nav-h));
+    min-height: 560px;
     background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('../images/hero4.jpg') center/cover no-repeat;
     color: #fff;
     display: flex;
@@ -25,12 +27,97 @@
         margin: 0;
     }
 
+/* Corner promo card (desktop only – mobile handled in MQ) */
+.promo-card {
+    position: absolute;
+    right: clamp(1rem, 3vw, 2rem);
+    bottom: clamp(1rem, 3vw, 2rem);
+    width: clamp(260px, 28vw, 340px);
+    color: #fff;
+    background: rgba(0,0,0,.38);
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.28);
+    z-index: 3;
+}
+
+.promo-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+}
+
+.promo-copy .eyebrow {
+    display: inline-block;
+    font-size: .75rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .9;
+    color: var(--brand-gold);
+    margin-bottom: 4px;
+}
+
+.promo-copy h3 {
+    margin: .1rem 0 .2rem;
+    font-size: 1.15rem;
+    line-height: 1.2;
+}
+
+.promo-copy p {
+    margin: .2rem 0 .6rem;
+    font-size: .95rem;
+    opacity: .95;
+}
+
+.promo-qr {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    background: #fff;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,.25);
+}
+
+/* pill buttons */
+.btn-pill {
+    display: inline-block;
+    padding: .55rem .9rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #e6d386, #caa94b);
+    color: #1e1e1e;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.35);
+    transition: transform .15s ease, box-shadow .2s ease;
+    font-size: .95rem;
+    line-height: 1;
+    margin-right: .4rem;
+}
+
+    .btn-pill:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.45);
+    }
+
+    .btn-pill.ghost {
+        background: transparent;
+        color: #fff;
+        border: 2px solid rgba(255,255,255,.6);
+        box-shadow: none;
+    }
+
+/* ----- MOBILE TWEAKS (also fixes promo visibility on phones) ----- */
 @media (max-width:768px) {
     .hero {
         height: 100vh;
         min-height: 100svh;
         background-position: center 30%;
         padding: 2rem 1.25rem;
+        /* Room for fixed promo card so text isn’t covered */
+        padding-bottom: 140px;
     }
 
         .hero h1 {
@@ -40,6 +127,51 @@
         .hero p {
             font-size: 1.05rem;
         }
+
+    /* SHOW promo on mobile, make it phone-friendly */
+    .promo-card {
+        display: block; /* was: none */
+        position: fixed; /* keep it visible while scrolling hero */
+        left: 12px;
+        right: 12px;
+        bottom: max(12px, env(safe-area-inset-bottom)); /* safe area for iOS */
+        width: auto;
+        margin: 0;
+        border-radius: 14px;
+        background: rgba(0,0,0,.55);
+        border: 1px solid rgba(255,255,255,.18);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 10px 28px rgba(0,0,0,.28);
+        z-index: 999; /* above hero */
+    }
+
+    .promo-inner {
+        grid-template-columns: auto 1fr; /* QR then copy */
+        gap: 10px;
+        padding: 12px 14px;
+    }
+
+    .promo-qr {
+        width: 56px;
+        height: 56px;
+        border-radius: 8px;
+    }
+
+    .promo-copy h3 {
+        font-size: 1rem;
+    }
+
+    .promo-copy p {
+        font-size: .9rem;
+        margin-bottom: .5rem;
+    }
+
+    .btn-pill {
+        padding: .55rem .85rem;
+        font-size: .9rem;
+        margin-right: .35rem;
+        margin-bottom: .4rem; /* allow wrap to next line nicely */
+    }
 }
 
 /* ---------- TEAM (lux) ---------- */
@@ -194,7 +326,7 @@
         font-family: 'Playfair Display', serif;
     }
 
-/* Grid yerleşim: sol kartlar | görsel | sağ kartlar */
+/* Grid: left cards | image | right cards */
 .why-container {
     display: grid;
     grid-template-columns: repeat(3, minmax(260px, 1fr));
@@ -204,14 +336,12 @@
     margin: 0 auto;
 }
 
-/* Sol / sağ kolonlar dikey yığın */
 .why-col {
     display: grid;
     gap: clamp(1rem,1.6vw,1.25rem);
     align-content: start;
 }
 
-/* Orta görsel */
 .why-image {
     display: flex;
     align-items: center;
@@ -225,7 +355,6 @@
         box-shadow: 0 10px 30px rgba(0,0,0,.08);
     }
 
-/* Kartlar – eş yükseklik & içerik ortalı */
 .why-card {
     background: #fff;
     padding: 1.4rem 1.25rem;
@@ -244,7 +373,6 @@
         height: 48px;
         object-fit: contain;
         margin-bottom: .75rem;
-        /* daire arka plan */
         background: #fffaf5;
         padding: 10px;
         border-radius: 50%;
@@ -265,7 +393,7 @@
         max-width: 36ch;
     }
 
-/* Tablet: 2 kolon (görsel 1, kartlar 1) */
+/* Tablet */
 @media (max-width:1024px) {
     .why-container {
         grid-template-columns: 1fr 1fr;
@@ -278,7 +406,7 @@
     }
 }
 
-/* Mobile: tek kolon; temiz aralıklar */
+/* Mobile */
 @media (max-width:768px) {
     .waaromwij {
         padding: 2rem 1.25rem;

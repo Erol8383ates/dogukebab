@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Over Ons – Dogu Kebab</title>
+
+    <!-- Global styles -->
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Page styles -->
     <link rel="stylesheet" href="css/overons.css" />
+
+    <!-- Swiper & AOS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css?v=7">
-    <script src="js/script.js?v=2" defer></script>
 
+    <!-- (optional) cache-busted global -->
+    <link rel="stylesheet" href="css/style.css?v=7">
+
+    <script src="js/script.js?v=2" defer></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -40,6 +47,26 @@
         <div class="hero-text" data-aos="fade-up">
             <h1>Over Ons</h1>
             <p>Een reis door smaak, cultuur en gastvrijheid</p>
+        </div>
+
+        <!-- Corner promo card -->
+        <div class="promo-card" role="complementary" aria-label="Volg ons">
+            <div class="promo-inner">
+                <div class="promo-copy">
+                    <span class="eyebrow">Volg ons</span>
+                    <h3>Instagram & Facebook</h3>
+                    <p>Nieuwe gerechten, acties en behind-the-scenes.</p>
+                    <div class="promo-actions">
+                        <a class="btn-pill" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+
+                        <a class="btn-pill ghost" href="https://www.facebook.com/dogukebab/?locale=tr_TR" target="_blank" rel="noopener">Facebook</a>
+                       
+                    </div>
+
+                </div>
+                <!-- Optional QR (replace src if you have one) -->
+                <img class="promo-qr" src="images/hero2.jpg" alt="Scan voor Instagram" />
+            </div>
         </div>
     </section>
 
@@ -123,10 +150,8 @@
                 <div class="swiper-slide favorite-card"><img src="images/dish1.jpg" alt="Mezze Mix" /><h4>Mezze Mix</h4></div>
                 <div class="swiper-slide favorite-card"><img src="images/dish2.jpg" alt="Köfte" /><h4>Köfte</h4></div>
                 <div class="swiper-slide favorite-card"><img src="images/dish3.jpg" alt="Dagsoep" /><h4>Dagsoep</h4></div>
-
             </div>
 
-            <!-- Navigation and Pagination -->
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
@@ -155,18 +180,9 @@
         document.addEventListener('DOMContentLoaded', function () {
             const swiper = new Swiper('.favorites-swiper', {
                 loop: true,
-                autoplay: {
-                    delay: 1500,
-                    disableOnInteraction: false
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true
-                },
+                autoplay: { delay: 1500, disableOnInteraction: false },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                pagination: { el: '.swiper-pagination', clickable: true },
                 spaceBetween: 30,
                 slidesPerView: 1,
                 breakpoints: {
@@ -176,6 +192,5 @@
             });
         });
     </script>
-
 </body>
 </html>
