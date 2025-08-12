@@ -653,3 +653,66 @@ img {
             width: max-content;
         }
 }
+
+
+
+
+
+
+/* --- DESKTOP: hero fills view (header height removed) --- */
+@media (min-width: 901px) {
+    .hero-slideshow {
+        height: calc(100vh - var(--nav-h));
+    }
+}
+
+/* --- Global pill button (used by bottom CTA) --- */
+.btn {
+    display: inline-block;
+    white-space: nowrap;
+    padding: .9rem 1.5rem;
+    border-radius: 999px;
+    background: linear-gradient(180deg,#e6d386,#caa94b);
+    color: #1e1e1e;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.35);
+    transition: transform .15s ease, box-shadow .2s ease;
+}
+
+    .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.45);
+    }
+
+    .btn:focus-visible {
+        outline: 3px solid rgba(202,169,75,.6);
+        outline-offset: 2px;
+    }
+
+/* Keep the HERO button as your red accent (only overrides inside hero) */
+.hero-content .btn {
+    border-radius: 6px;
+    background: var(--accent-color);
+    color: #fff;
+    padding: .75rem 1.25rem;
+    box-shadow: none;
+}
+
+/* --- DESKTOP layout for the bottom CTA stripe --- */
+@media (min-width: 701px) {
+    .cta {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        text-align: left;
+    }
+
+        .cta .btn {
+            justify-self: end;
+        }
+
+        .cta a {
+            text-decoration: none !important;
+        }
+}
