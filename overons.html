@@ -1,3 +1,4 @@
+<!-- ===================== overons.html (UPDATED FULL) ===================== -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -42,14 +43,44 @@
         </nav>
     </header>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="hero-text" data-aos="fade-up">
-            <h1>Over Ons</h1>
-            <p>Een reis door smaak, cultuur en gastvrijheid</p>
+    <!-- ===================== HERO (RICHER) ===================== -->
+    <section class="hero" aria-label="Over Ons Hero">
+        <!-- background + gradient overlay are in CSS -->
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="bokeh" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+        <div class="hero__content" data-parallax data-speed="0.3" data-aos="fade-up">
+            <span class="hero__kicker">Over Ons</span>
+            <h1 class="hero__title">Een reis door smaak, cultuur en gastvrijheid</h1>
+            <p class="hero__lead">Sinds 1998 verwelkomen we onze gasten met authentieke smaken, verse ingrediënten en een warme glimlach. Ontdek het verhaal achter onze keuken, het team en het vakmanschap dat elk bord bijzonder maakt.</p>
+            <div class="hero__cta">
+                <a href="reserveren.html" class="btn-pill hero-cta">Reserveer Nu</a>
+                <a href="menu.html" class="btn-pill ghost hero-cta">Bekijk Menu</a>
+            </div>
+            <div class="ornament" aria-hidden="true">
+                <svg width="160" height="20" viewBox="0 0 160 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 10 H60" stroke="currentColor" stroke-width="1.5" opacity=".6" />
+                    <circle cx="80" cy="10" r="4" stroke="currentColor" stroke-width="1.5" fill="none" />
+                    <path d="M100 10 H158" stroke="currentColor" stroke-width="1.5" opacity=".6" />
+                </svg>
+            </div>
+            <ul class="badges" role="list">
+                <li class="badge" id="rotating-badge">
+                    <span class="badge__title" id="badge-title">Uw Tafel Wacht</span>
+                    <span class="badge__desc" id="badge-desc">Reserveer vandaag nog</span>
+                </li>
+                <li class="badge">
+                    <span class="badge__title">Address</span>
+                    <span class="badge__desc">Lispersteenweg 10 • 2500 Lier</span>
+                </li>
+                <li class="badge">
+                    <span class="badge__title">Reserveer</span>
+                    <a class="badge__link" href="tel:+3212345678">0496 45 26 49</a>
+                </li>
+            </ul>
         </div>
 
-        <!-- Corner promo card -->
+        <!-- Corner promo card (kept from your design) -->
         <div class="promo-card" role="complementary" aria-label="Volg ons">
             <div class="promo-inner">
                 <div class="promo-copy">
@@ -58,26 +89,22 @@
                     <p>Nieuwe gerechten, acties en behind-the-scenes.</p>
                     <div class="promo-actions">
                         <a class="btn-pill" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-
                         <a class="btn-pill ghost" href="https://www.facebook.com/dogukebab/?locale=tr_TR" target="_blank" rel="noopener">Facebook</a>
-                       
                     </div>
-
                 </div>
-                <!-- Optional QR (replace src if you have one) -->
-                <img class="promo-qr" src="images/hero2.jpg" alt="Scan voor Instagram" />
+                <img class="promo-qr" src="images/hero2.jpg" alt="Volg ons visueel" />
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- ===================== TEAM ===================== -->
     <section class="team-luxury-section" data-aos="fade-up">
         <div class="team-bg-overlay"></div>
         <h2 class="team-heading">Ontmoet ons Team</h2>
         <div class="team-carousel">
             <div class="team-member-card chef">
                 <div class="blur-circle circle1"></div>
-                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1" alt="Youssef" />
+                <img src="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1" alt="Ulgar" />
                 <h4>Ulgar <span class="badge">Chef</span></h4>
                 <p class="role">Chef & Mede-oprichter</p>
                 <blockquote>“Passie voor smaak en perfectie op elk bord.”</blockquote>
@@ -91,7 +118,7 @@
             </div>
             <div class="team-member-card">
                 <div class="blur-circle circle3"></div>
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Abdel" />
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Oktay" />
                 <h4>Oktay</h4>
                 <p class="role">Ober</p>
                 <blockquote>“Dagverse kwaliteit, elke dag opnieuw.”</blockquote>
@@ -99,7 +126,7 @@
         </div>
     </section>
 
-    <!-- Waarom Wij -->
+    <!-- ===================== WAAROM WIJ ===================== -->
     <section class="waaromwij" data-aos="fade-up">
         <h2>Waarom Wij?</h2>
         <div class="why-container">
@@ -120,7 +147,7 @@
             </div>
             <div class="why-col">
                 <div class="why-card">
-                    <img src="https://img.icons8.com/ios-filled/64/checked--v1.png" alt="Gecertificeerd" />
+                    <img src="https://img.icons8.com/ios-filled/64/checked--v1.png" alt="Gastvrij" />
                     <h3>Gastvrijheid</h3>
                     <p>Onze gasten staan altijd centraal – met persoonlijke service en een glimlach.</p>
                 </div>
@@ -133,7 +160,7 @@
         </div>
     </section>
 
-    <!-- FAVORI SLIDER -->
+    <!-- ===================== FAVORI SLIDER ===================== -->
     <section class="favorites" data-aos="fade-up">
         <h2>Een Greep uit Onze Favorieten</h2>
 
@@ -191,6 +218,38 @@
                 }
             });
         });
+
+        // Minimal parallax on hero
+        (function () {
+            const el = document.querySelector('[data-parallax]');
+            if (!el) return;
+            const speed = parseFloat(el.getAttribute('data-speed')) || 0.3;
+            const onScroll = () => { el.style.transform = `translateY(${window.scrollY * speed}px)`; };
+            window.addEventListener('scroll', onScroll, { passive: true });
+        })();
     </script>
+
+
+    <script>
+        const messages = [
+            { title: "Uw Tafel Wacht", desc: "Reserveer vandaag nog" },
+            { title: "Special van de Dag", desc: "Proef onze chef’s creatie" },
+            { title: "Sinds 1998", desc: "Meer dan 25 jaar smaak & gastvrijheid" },
+            { title: "Met Liefde Bereid", desc: "Alleen de beste ingrediënten" }
+        ];
+
+        let currentIndex = 0;
+        const titleEl = document.getElementById("badge-title");
+        const descEl = document.getElementById("badge-desc");
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            titleEl.textContent = messages[currentIndex].title;
+            descEl.textContent = messages[currentIndex].desc;
+        }, 4000); // change every 4 seconds
+    </script>
+
+
+
 </body>
 </html>
