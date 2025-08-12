@@ -8,6 +8,7 @@
     --footer-bg: #eae7e1;
     --brand-gold: #bfa06c;
     --nav-h: 76px;
+    --marquee-speed: 18s;
 }
 
 body.dark {
@@ -467,7 +468,7 @@ img {
         align-items: center;
         gap: 16px;
         width: max-content;
-        animation: marquee 40s linear infinite;
+        animation: marquee var(--marquee-speed) linear infinite;
     }
 
     .gallery-marquee img {
@@ -494,9 +495,14 @@ img {
 @media (max-width:768px) {
     .gallery-marquee img {
         height: 110px;
+
     }
 }
-
+@media (max-width:768px) {
+    :root {
+        --marquee-speed: 14s;
+    }
+}
 /* ---------- WHY US ---------- */
 .why-us {
     padding: clamp(2rem,6vw,4rem) clamp(1rem,4vw,2rem);
