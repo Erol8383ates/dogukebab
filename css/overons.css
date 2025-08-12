@@ -635,8 +635,11 @@
 
 /* small helper for hero CTA spacing on very short screens */
 @media (max-height:680px) {
-    .badges {
-        display: none
+    .badges, .badge {
+        display: flex !important; /* or block, depending on your layout */
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
     }
 }
 
