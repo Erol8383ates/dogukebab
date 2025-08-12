@@ -1,5 +1,5 @@
 /* ===========================
-   Reserveren (Updated, Mobile-safe)
+   Reserveren – ONE SCROLL, MOBILE SAFE
    =========================== */
 
 /* ---------- THEME ---------- */
@@ -10,12 +10,19 @@
     --bg-overlay: rgba(255,255,255,.85);
     --btn-dark: #8b6f1c;
     --popup-bg: #fffdf5;
-    --nav-h: 76px; /* global header yüksekliği ile uyumlu */
+    --nav-h: 76px;
 }
 
-/* ---------- BASE ---------- */
-html, body {
-    overflow-x: hidden; /* yatay taşmaları kes, çift scrollbar önle */
+/* ---------- BASE: single vertical scroll ---------- */
+html {
+    height: 100%;
+    overflow-y: auto;
+}
+/* sadece html kaydırır */
+body {
+    min-height: 100%;
+    overflow-y: visible;
+    overflow-x: hidden;
 }
 
 html {
@@ -24,53 +31,66 @@ html {
 
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    /* ÇİFT SCROLL’U TETİKLEYEN fixed background KALDIRILDI */
-    background: #fdfaf5 url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+    background: #fdfaf5 url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; /* fixed DEĞİL */
     color: var(--text-color);
-    /* backdrop-filter mobilde ekstra layer ve performans sorunlarına yol açabiliyor; gerekirse aç */
-    /* backdrop-filter: blur(3px); */
 }
 
-/* Header daima en üstte kalsın (globalde zaten fixed; burada z-index’i garanti edelim) */
 .navbar {
     z-index: 4000 !important;
+}
+
+/* Emniyet: ana bloklar iç scroll üretmesin */
+.reserveren-hero,
+.hero-overlay,
+.reserveren-form-section,
+.evenementen-section {
+    overflow: visible;
 }
 
 /* ---------- HERO ---------- */
 .reserveren-hero {
     position: relative;
-    height: 85vh;
-    min-height: 560px;
     background: url('https://images.unsplash.com/photo-1600891964509-0c9f98b9d232?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     overflow: hidden;
+}
+
+/* Masaüstü: header yüksekliğini düşerek hesapla → taşma/ikinci scroll olmaz */
+@media (min-width: 861px) {
+    .reserveren-hero {
+        height: calc(100vh - var(--nav-h));
+        min-height: calc(560px - var(--nav-h));
+    }
+}
+
+/* Mobil: gerçek tam ekran */
+@media (max-width: 860px) {
+    .reserveren-hero {
+        height: 100svh;
+        min-height: 100svh;
+    }
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
-    z-index: 1; /* header’ın altında, içerikten daha düşük */
-    /* premium vignette */
-    background: radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.33) 80%, rgba(0,0,0,.22) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
     text-align: center;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,.55) 0%, rgba(0,0,0,.45) 45%, rgba(0,0,0,.33) 80%, rgba(0,0,0,.22) 100%);
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
     color: #fff;
     padding: 2rem;
     max-width: 1000px;
+    z-index: 1;
 }
 
     .hero-content h1 {
         font-family: 'Playfair Display',serif;
         font-size: clamp(2.6rem, 6vw, 4.6rem);
         margin: 0 0 .6rem;
-        letter-spacing: .02em;
         text-shadow: 0 2px 12px rgba(0,0,0,.45);
     }
 
@@ -84,14 +104,14 @@ body {
 /* CTA */
 .cta-scroll {
     display: inline-block;
-    background: linear-gradient(180deg, #e6d386, #caa94b);
+    background: linear-gradient(180deg,#e6d386,#caa94b);
     color: #1e1e1e;
     font-weight: 700;
     text-decoration: none;
     padding: .9rem 1.45rem;
     border-radius: 999px;
     box-shadow: 0 6px 18px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.35);
-    transition: transform .15s ease, box-shadow .2s ease, opacity .2s ease;
+    transition: transform .15s, box-shadow .2s;
 }
 
     .cta-scroll:hover {
@@ -99,13 +119,7 @@ body {
         box-shadow: 0 10px 24px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.45);
     }
 
-    .cta-scroll:active {
-        transform: translateY(0);
-    }
-
-/* küçük ok */
 .scroll-chevron {
-    display: block;
     width: 16px;
     height: 16px;
     margin: 10px auto 0;
@@ -119,29 +133,29 @@ body {
 @keyframes chevron {
     0% {
         transform: translateY(0) rotate(45deg);
-        opacity: .9;
+        opacity: .9
     }
 
     50% {
         transform: translateY(6px) rotate(45deg);
-        opacity: .5;
+        opacity: .5
     }
 
     100% {
         transform: translateY(0) rotate(45deg);
-        opacity: .9;
+        opacity: .9
     }
 }
 
-/* ---------- FORM SECTION ---------- */
+/* ---------- FORM SECTION (bindirmesiz, iç scroll yok) ---------- */
 .reserveren-form-section {
     background: var(--bg-overlay);
-    padding: 4rem 2rem;
+    padding: clamp(2.5rem, 4vw, 4rem) 1.5rem;
     max-width: 1000px;
-    margin: -5rem auto 0; /* hero’nun içine yumuşak bindirme */
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-    scroll-margin-top: var(--nav-h); /* anchor offset */
+    margin: 0 auto; /* negatif margin YOK */
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    scroll-margin-top: var(--nav-h);
 }
 
 .form-wrapper h2 {
@@ -173,9 +187,7 @@ body {
         font-weight: 500;
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
+    .form-group input, .form-group select, .form-group textarea {
         padding: .75rem 1rem;
         border: 1px solid #d3c5a0;
         border-radius: 6px;
@@ -190,7 +202,7 @@ body {
 }
 
 .form-group.full {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
 }
 
 .btn-reserveer {
@@ -299,15 +311,9 @@ body {
         cursor: pointer;
     }
 
-/* ---------- MOBILE ---------- */
+/* ---------- MOBILE TWEAKS ---------- */
 @media (max-width: 860px) {
-    /* Hero tam ekran: alttaki beyaz boşluk kaybolur */
-    .reserveren-hero {
-        height: 100svh; /* iOS/Android güvenli viewport */
-        min-height: 100svh;
-    }
-
-    /* Header şeffaf hero üstünde — hamburger görünürlük garantisi */
+    /* Hero üzerindeyken hamburger & marka görünür */
     body:not(.nav-solid) .menu-toggle {
         color: var(--gold) !important;
         text-shadow: 0 0 2px rgba(0,0,0,.55), 0 0 8px rgba(0,0,0,.35);
@@ -318,7 +324,6 @@ body {
         text-shadow: none;
     }
 
-    /* Brand yazısı hero üstünde beyaz; aşağıda koyu */
     body:not(.nav-solid) .brand-text {
         color: #fff !important;
         text-shadow: 0 1px 3px rgba(0,0,0,.55);
@@ -327,13 +332,6 @@ body {
     body.nav-solid .brand-text {
         color: var(--text-color) !important;
         text-shadow: none;
-    }
-
-    /* Form bindirmesini mobilde biraz azalt – ilk görünüm daha temiz */
-    .reserveren-form-section {
-        margin: -3rem auto 0;
-        border-radius: 16px;
-        padding: 3rem 1.5rem;
     }
 
     .hero-content h1 {

@@ -547,3 +547,42 @@ img {
         text-shadow: none;
     }
 }
+/* --- Mobile nav dropdown theming fix (works on all pages) --- */
+@media (max-width: 900px) {
+    /* Hero üstünde: koyu panel + beyaz yazı */
+    body:not(.nav-solid) .navbar .nav-links {
+        background: rgba(0,0,0,.92) !important;
+        border: 0 !important;
+        box-shadow: 0 12px 30px rgba(0,0,0,.4) !important;
+        backdrop-filter: blur(4px);
+    }
+
+        body:not(.nav-solid) .navbar .nav-links a {
+            color: #fff !important;
+        }
+
+            body:not(.nav-solid) .navbar .nav-links a:hover {
+                background: rgba(255,255,255,.12) !important;
+            }
+
+    /* Scroll sonrası: açık panel + koyu yazı */
+    body.nav-solid .navbar .nav-links {
+        background: var(--bg-color) !important;
+        border: 1px solid rgba(0,0,0,.06) !important;
+        box-shadow: 0 10px 24px rgba(0,0,0,.10) !important;
+        backdrop-filter: none;
+    }
+
+        body.nav-solid .navbar .nav-links a {
+            color: var(--text-color) !important;
+        }
+
+            body.nav-solid .navbar .nav-links a:hover {
+                background: rgba(0,0,0,.06) !important;
+            }
+}
+
+
+
+
+
