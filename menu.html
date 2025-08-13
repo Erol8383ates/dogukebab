@@ -1,3 +1,8 @@
+<!-- =============================
+UPDATED FILES (full): menu.html + css/menu.css
+This document shows BOTH files. Copy each block into your project.
+============================= -->
+<!-- ========== FILE: menu.html ========== -->
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -5,12 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Menu – Delizioso</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css?v=7" />
     <link rel="stylesheet" href="css/menu.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-
     <!-- Navbar -->
     <header class="navbar">
         <a href="index.html" class="logo" aria-label="Dogu Kebab Home">
@@ -39,219 +43,405 @@
                 <h1>Ontdek ons Menu</h1>
                 <p>Authentieke smaken uit de Mediterrane keuken</p>
                 <div class="menu-filter">
-                    <div class="menu-filter">
-                        <button class="filter-btn active" data-filter="all">Hepsi</button>
-                        <button class="filter-btn" data-filter="wijnen">Wijnen</button>
-                        <button class="filter-btn" data-filter="warme-dranken">Warme Dranken</button>
-                        <button class="filter-btn" data-filter="bieren">Bieren</button>
-                        <button class="filter-btn" data-filter="cocktail-aperitief">Coctail en Aperitieven</button>
-                        <button class="filter-btn" data-filter="frisdranken">Frisdranken</button>
-                        <button class="filter-btn" data-filter="salades">Salades</button>
-                        <button class="filter-btn" data-filter="bbq-broodjes">BBQ Broodjes</button>
-                        <button class="filter-btn" data-filter="frieten">Frieten</button>
-                        <button class="filter-btn" data-filter="pokebowl">Poke Bowl</button>
-                        <button class="filter-btn" data-filter="bbq-schotels">BBQ Schotels</button>
-                        <button class="filter-btn" data-filter="schotels">Schotels</button>
-                        <button class="filter-btn" data-filter="bakjes">Bakjes</button>
-                        <button class="filter-btn" data-filter="hamburgers">Hamburgers</button>
-                        <button class="filter-btn" data-filter="zapiekanka">Zapiekanka</button>
-                        <button class="filter-btn" data-filter="broodjes">Broodjes</button>
-                        <button class="filter-btn" data-filter="kapsalon">Kapsalon</button>
-                        <button class="filter-btn" data-filter="durums">Durums</button>
-                        <button class="filter-btn" data-filter="supplementen">Supplementen</button>
-                        <button class="filter-btn" data-filter="Extras">Extras</button>
-                    </div>
-
+                    <button class="filter-btn active" data-filter="all">Hepsi</button>
+                    <button class="filter-btn" data-filter="wijnen">Wijnen</button>
+                    <button class="filter-btn" data-filter="warme-dranken">Warme Dranken</button>
+                    <button class="filter-btn" data-filter="bieren">Bieren</button>
+                    <button class="filter-btn" data-filter="cocktail-aperitief">Coctail en Aperitieven</button>
+                    <button class="filter-btn" data-filter="frisdranken">Frisdranken</button>
+                    <button class="filter-btn" data-filter="salades">Salades</button>
+                    <button class="filter-btn" data-filter="bbq-broodjes">BBQ Broodjes</button>
+                    <button class="filter-btn" data-filter="frieten">Frieten</button>
+                    <button class="filter-btn" data-filter="pokebowl">Poke Bowl</button>
+                    <button class="filter-btn" data-filter="bbq-schotels">BBQ Schotels</button>
+                    <button class="filter-btn" data-filter="schotels">Schotels</button>
+                    <button class="filter-btn" data-filter="bakjes">Bakjes</button>
+                    <button class="filter-btn" data-filter="hamburgers">Hamburgers</button>
+                    <button class="filter-btn" data-filter="zapiekanka">Zapiekanka</button>
+                    <button class="filter-btn" data-filter="broodjes">Broodjes</button>
+                    <button class="filter-btn" data-filter="kapsalon">Kapsalon</button>
+                    <button class="filter-btn" data-filter="durums">Durums</button>
+                    <button class="filter-btn" data-filter="supplementen">Supplementen</button>
+                    <button class="filter-btn" data-filter="Extras">Extras</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Menu Items -->
-    <section class="menu-grid">
+    <!-- ================= NEW MENU LAYOUT ================= -->
+    <section class="menu-section" id="menu">
+        <h2 class="menu-title">Dranken & Gerechten</h2>
 
         <!-- WIJNEN -->
-        <div class="menu-item wijnen">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Wine_glasses_--_Still_life.jpg" alt="Wijnen" />
-            <div class="item-info">
-                <h3>Wijnen (Rood/Wit/Rosé)</h3>
-                <p>Glas / Karaf / Fles</p>
-                <span>€4,50 · €12,00 · €18,00</span>
-            </div>
-        </div>
+        <article class="category wijnen">
+            <header>
+                <h3>Wijnen (Rood / Wit / Rosé)</h3>
+                <div class="thumbs">
+                    <img src="images/karaf.jpg" alt="Wijn glazen" loading="lazy" />
+
+                    <img src="images/witte.jpg" alt="Rode wijn" loading="lazy" />
+                    <img src="images/rode.jpg" alt="Witte wijn" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items">
+                <li><span class="name">Glas</span><span class="price">€4,50</span></li>
+                <li><span class="name">Karaf</span><span class="price">€12,00</span></li>
+                <li><span class="name">Fles</span><span class="price">€18,00</span></li>
+            </ul>
+        </article>
 
         <!-- WARME DRANKEN -->
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Turkish_coffee_001.jpg" alt="Turkse Koffie" /><div class="item-info"><h3>Turkse Koffie</h3><span>€4,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="Koffie" /><div class="item-info"><h3>Koffie</h3><span>€3,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/A_small_cup_of_coffee.JPG" alt="Espresso" /><div class="item-info"><h3>Espresso</h3><span>€3,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Latte_Macchiato.jpg" alt="Latte Macchiato" /><div class="item-info"><h3>Latte Macchiato</h3><span>€4,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Cappuccino_at_Sightglass_Coffee.jpg" alt="Cappuccino" /><div class="item-info"><h3>Cappuccino</h3><span>€4,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Cappuccino_at_Sightglass_Coffee.jpg" alt="Cappuccino met Slagroom" /><div class="item-info"><h3>Cappuccino met Slagroom</h3><span>€4,50</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Hot_chocolate_p1330888.jpg" alt="Warme Chocomelk" /><div class="item-info"><h3>Warme Chocomelk</h3><span>€4,00</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Hot_chocolate_p1330888.jpg" alt="Warme Chocomelk met Slagroom" /><div class="item-info"><h3>Warme Chocomelk met Slagroom</h3><span>€4,50</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Apple_tea_in_Istanbul.jpg" alt="Appelthee" /><div class="item-info"><h3>Appelthee</h3><span>€2,50</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Mint_tea_in_glass_cup.jpg" alt="Muntthee" /><div class="item-info"><h3>Muntthee</h3><span>€3,50</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tea_in_Turkey.jpg" alt="Turkse Thee" /><div class="item-info"><h3>Turkse Thee</h3><span>€2,50</span></div></div>
-        <div class="menu-item warme-dranken"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Lipton_Tea_Bags.jpg" alt="Lipton Exclusive" /><div class="item-info"><h3>Lipton Exclusive</h3><p>English breakfast, citroen, kamille, munt, bosvruchten, groene thee, rozenbottel</p><span>€3,50</span></div></div>
+        <article class="category warme-dranken">
+            <header>
+                <h3>Warme Dranken</h3>
+                <div class="thumbs">
+                    <img src="images/tea.jpg" alt="Turkse koffie" loading="lazy" />
+                    <img src="images/coffee.jpg" alt="Latte macchiato" loading="lazy" />
+                    <img src="images/lette.jpg" alt="Warme chocomelk" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Turkse Koffie</span><span class="price">€4,00</span></li>
+                <li><span class="name">Koffie</span><span class="price">€3,00</span></li>
+                <li><span class="name">Espresso</span><span class="price">€3,00</span></li>
+                <li><span class="name">Latte Macchiato</span><span class="price">€4,00</span></li>
+                <li><span class="name">Cappuccino</span><span class="price">€4,00</span></li>
+                <li><span class="name">Cappuccino met Slagroom</span><span class="price">€4,50</span></li>
+                <li><span class="name">Warme Chocomelk</span><span class="price">€4,00</span></li>
+                <li><span class="name">Warme Chocomelk met Slagroom</span><span class="price">€4,50</span></li>
+                <li><span class="name">Appelthee</span><span class="price">€2,50</span></li>
+                <li><span class="name">Muntthee</span><span class="price">€3,50</span></li>
+                <li><span class="name">Turkse Thee</span><span class="price">€2,50</span></li>
+                <li class="wrap"><span class="name">Lipton Exclusive <em>(English breakfast, citroen, kamille, munt, bosvruchten, groene thee, rozenbottel)</em></span><span class="price">€3,50</span></li>
+            </ul>
+        </article>
 
         <!-- BIEREN -->
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Beer_in_pint_glass.jpg" alt="Jupiler 25 cl" /><div class="item-info"><h3>Jupiler 25 cl</h3><span>€3,20</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Beer_in_pint_glass.jpg" alt="Stella 25 cl" /><div class="item-info"><h3>Stella 25 cl</h3><span>€3,20</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Duvel_Beer.jpg" alt="Duvel 33 cl" /><div class="item-info"><h3>Duvel 33 cl</h3><span>€3,90</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Leffe_Blond_Beer.jpg" alt="Leffe Blond 33 cl" /><div class="item-info"><h3>Leffe Blond 33 cl</h3><span>€4,20</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Leffe_Brune.jpg" alt="Leffe Bruin 33 cl" /><div class="item-info"><h3>Leffe Bruin 33 cl</h3><span>€4,20</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Westmalle_Dubbel.jpg" alt="Westmalle Dubbel 33 cl" /><div class="item-info"><h3>Westmalle Dubbel 33 cl</h3><span>€4,20</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Westmalle_Tripel.jpg" alt="Westmalle Trippel 33 cl" /><div class="item-info"><h3>Westmalle Trippel 33 cl</h3><span>€4,60</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Lindemans_Kriek.jpg" alt="Lindemans Kriek 33 cl" /><div class="item-info"><h3>Lindemans Kriek 33 cl</h3><span>€3,90</span></div></div>
-        <div class="menu-item bieren"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Beer_in_pint_glass.jpg" alt="Stella 0,0%" /><div class="item-info"><h3>Stella 0,0%</h3><span>€3,00</span></div></div>
+        <article class="category bieren">
+            <header>
+                <h3>Bieren</h3>
+                <div class="thumbs">
+                    <img src="images/leffe.jpg" alt="Pils" loading="lazy" />
+                    <img src="images/jupiler.jpg" alt="Leffe" loading="lazy" />
+                    <img src="images/biers.jpg" alt="Pils" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Jupiler 25 cl</span><span class="price">€3,20</span></li>
+                <li><span class="name">Stella 25 cl</span><span class="price">€3,20</span></li>
+                <li><span class="name">Duvel 33 cl</span><span class="price">€3,90</span></li>
+                <li><span class="name">Leffe Blond 33 cl</span><span class="price">€4,20</span></li>
+                <li><span class="name">Leffe Bruin 33 cl</span><span class="price">€4,20</span></li>
+                <li><span class="name">Westmalle Dubbel 33 cl</span><span class="price">€4,20</span></li>
+                <li><span class="name">Westmalle Trippel 33 cl</span><span class="price">€4,60</span></li>
+                <li><span class="name">Lindemans Kriek 33 cl</span><span class="price">€3,90</span></li>
+                <li><span class="name">Stella 0,0%</span><span class="price">€3,00</span></li>
+            </ul>
+        </article>
 
-        <!-- COCTAIL EN APERITIEVEN -->
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mojito_Cocktail.jpg" alt="Mojito" /><div class="item-info"><h3>Mojito</h3><p>Witte rum, limoen, riet suiker, verse munt, bruiswater</p><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Strawberry_Mojito_-_CrystalMixer.jpg" alt="Strawberry Mojito" /><div class="item-info"><h3>Strawberry Mojito</h3><p>Witte rum, limoen, riet suiker, verse munt, bruiswater, aardbei</p><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Aperol_Spritz_Orange.jpg" alt="Aperol Spritz" /><div class="item-info"><h3>Aperol Spritz</h3><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Cava_glass.jpg" alt="Cava" /><div class="item-info"><h3>Cava</h3><span>€6,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Prosecco_glass.jpg" alt="Prosecco" /><div class="item-info"><h3>Prosecco</h3><span>€6,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Martini_rosso.jpg" alt="Martini wit of rood" /><div class="item-info"><h3>Martini wit of rood</h3><span>€6,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Gin_and_tonic_in_highball_glass.jpg" alt="Gin Tonic (classic)" /><div class="item-info"><h3>Gin Tonic (classic)</h3><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Gin_and_tonic_in_highball_glass.jpg" alt="Blue Gin" /><div class="item-info"><h3>Blue Gin</h3><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Gin_and_tonic_in_highball_glass.jpg" alt="Pink Gin" /><div class="item-info"><h3>Pink Gin</h3><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Limoncello_Spritz.jpg" alt="Limoncello Sunrise" /><div class="item-info"><h3>Limoncello Sunrise</h3><span>€8,50</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Raki_in_Istanbul.jpg" alt="Raki 4 cl + Plat water 33 cl" /><div class="item-info"><h3>Raki 4 cl + Plat water 33 cl</h3><span>€6,50</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Raki_in_Istanbul.jpg" alt="Raki 8 cl + Plat water 33 cl" /><div class="item-info"><h3>Raki 8 cl + Plat water 33 cl</h3><span>€10,00</span></div></div>
-        <div class="menu-item cocktail-aperitief"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Meze_platter.jpg" alt="Raki Mezze" /><div class="item-info"><h3>Raki Mezze</h3><p>Feta, olijven, komkommer, tomaat</p><span>€5,00</span></div></div>
+        <!-- COCKTAIL & APERITIEF -->
+        <article class="category cocktail-aperitief">
+            <header>
+                <h3>Cocktail & Aperitieven</h3>
+                <div class="thumbs">
+                    <img src="images/mojito.jpg" alt="Mojito" loading="lazy" />
+                    <img src="images/martini.jpg" alt="Martini" loading="lazy" />
+                    <img src="images/raki.jpg" alt="RakiS" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li class="wrap"><span class="name">Mojito <em>(witte rum, limoen, rietsuiker, verse munt, bruiswater)</em></span><span class="price">€10,00</span></li>
+                <li class="wrap"><span class="name">Strawberry Mojito <em>(+ aardbei)</em></span><span class="price">€10,00</span></li>
+                <li><span class="name">Aperol Spritz</span><span class="price">€10,00</span></li>
+                <li><span class="name">Cava</span><span class="price">€6,00</span></li>
+                <li><span class="name">Prosecco</span><span class="price">€6,00</span></li>
+                <li><span class="name">Martini wit of rood</span><span class="price">€6,00</span></li>
+                <li><span class="name">Gin Tonic (classic)</span><span class="price">€10,00</span></li>
+                <li><span class="name">Blue Gin</span><span class="price">€10,00</span></li>
+                <li><span class="name">Pink Gin</span><span class="price">€10,00</span></li>
+                <li><span class="name">Limoncello Sunrise</span><span class="price">€8,50</span></li>
+                <li><span class="name">Raki 4 cl + Plat water 33 cl</span><span class="price">€6,50</span></li>
+                <li><span class="name">Raki 8 cl + Plat water 33 cl</span><span class="price">€10,00</span></li>
+                <li class="wrap"><span class="name">Raki Mezze <em>(Feta, olijven, komkommer, tomaat)</em></span><span class="price">€5,00</span></li>
+            </ul>
+        </article>
 
         <!-- FRISDRANKEN -->
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Coca_Cola_can_2013.jpg" alt="Coca Cola / Cola Zero" /><div class="item-info"><h3>Coca Cola / Cola Zero</h3><span>€2,80</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Fanta_can.jpg" alt="Fanta" /><div class="item-info"><h3>Fanta</h3><span>€2,80</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Sprite_can_2022.jpg" alt="Sprite" /><div class="item-info"><h3>Sprite</h3><span>€2,80</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Ayran%2C_Istanbul%2C_Turkey.JPG" alt="Ayran" /><div class="item-info"><h3>Ayran</h3><span>€2,80</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Lipton_Ice_Tea_Peach.jpg" alt="Ice Tea / Peach / Green" /><div class="item-info"><h3>Ice Tea / Peach / Green</h3><span>€3,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Schweppes_Agrum_bottle.jpg" alt="Agrum / Gini" /><div class="item-info"><h3>Agrum / Gini</h3><span>€3,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Uludag_gazoz.jpg" alt="Uludag" /><div class="item-info"><h3>Uludag</h3><span>€3,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Chaudfontaine_bottle.jpg" alt="Chaudfontaine (Plat/Bruis)" /><div class="item-info"><h3>Chaudfontaine (Plat of Bruis)</h3><span>€2,80</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Chaudfontaine_bottle.jpg" alt="Chaudfontaine 1l" /><div class="item-info"><h3>Chaudfontaine 1 l (Plat/Bruis)</h3><span>€6,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/San_Pellegrino_bottle.jpg" alt="San Pellegrino 50 cl" /><div class="item-info"><h3>San Pellegrino 50 cl</h3><span>€5,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/San_Pellegrino_bottle.jpg" alt="San Pellegrino 1 l" /><div class="item-info"><h3>San Pellegrino 1 l</h3><span>€7,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Minute_Maid_Orange.jpg" alt="Minute Maid" /><div class="item-info"><h3>Minute Maid (orange / appel / multi vitamine)</h3><span>€3,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Red_Bull_Japan.jpg" alt="Red Bull" /><div class="item-info"><h3>Red Bull</h3><span>€3,00</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Fever-Tree_Raspberry_%26_Rhubarb_Tonic_Water.jpg" alt="Fevertree Raspberry & Rhubarb Tonic Water" /><div class="item-info"><h3>Fevertree Raspberry &amp; Rhubarb Tonic Water</h3><span>€3,60</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Schweppes_Indian_Tonic_Water_can.jpg" alt="Schweppes Indian Tonic Water" /><div class="item-info"><h3>Schweppes Indian Tonic Water</h3><span>€3,60</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Schweppes_Hibiscus.jpg" alt="Schweppes Hibiscus" /><div class="item-info"><h3>Schweppes Hibiscus</h3><span>€3,60</span></div></div>
-        <div class="menu-item frisdranken"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Iced_tea_in_jars.jpg" alt="Homemade Ice Tea" /><div class="item-info"><h3>Homemade Ice Tea</h3><span>€6,00</span></div></div>
+        <article class="category frisdranken">
+            <header>
+                <h3>Frisdranken</h3>
+                <div class="thumbs">
+                    <img src="images/cola.jpg" alt="Cola" loading="lazy" />
+                    <img src="images/schweps.jpg" alt="schweps" loading="lazy" />
+                    <img src="images/icetea.jpg" alt="Icetea" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Coca Cola / Cola Zero</span><span class="price">€2,80</span></li>
+                <li><span class="name">Fanta</span><span class="price">€2,80</span></li>
+                <li><span class="name">Sprite</span><span class="price">€2,80</span></li>
+                <li><span class="name">Ayran</span><span class="price">€2,80</span></li>
+                <li><span class="name">Ice Tea / Peach / Green</span><span class="price">€3,00</span></li>
+                <li><span class="name">Agrum / Gini</span><span class="price">€3,00</span></li>
+                <li><span class="name">Uludag</span><span class="price">€3,00</span></li>
+                <li><span class="name">Chaudfontaine (Plat of Bruis)</span><span class="price">€2,80</span></li>
+                <li><span class="name">Chaudfontaine 1 l (Plat/Bruis)</span><span class="price">€6,00</span></li>
+                <li><span class="name">San Pellegrino 50 cl</span><span class="price">€5,00</span></li>
+                <li><span class="name">San Pellegrino 1 l</span><span class="price">€7,00</span></li>
+                <li><span class="name">Minute Maid (orange / appel / multi vitamine)</span><span class="price">€3,00</span></li>
+                <li><span class="name">Red Bull</span><span class="price">€3,00</span></li>
+                <li><span class="name">Fevertree Raspberry & Rhubarb Tonic</span><span class="price">€3,60</span></li>
+                <li><span class="name">Schweppes Indian Tonic Water</span><span class="price">€3,60</span></li>
+                <li><span class="name">Schweppes Hibiscus</span><span class="price">€3,60</span></li>
+                <li><span class="name">Homemade Ice Tea</span><span class="price">€6,00</span></li>
+            </ul>
+        </article>
 
         <!-- SALADES -->
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Greek_salad_%285178297958%29.jpg" alt="Griekse Sla" /><div class="item-info"><h3>Griekse Sla</h3><p>Tomaten, komkommer, groene paprika, kalamon olijven, fetakaas, olijfolie, sarma</p><span>€17,00</span></div></div>
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Fruit_Salad_with_Grilled_Halloumi_Cheese.jpg" alt="Halloumi Sla" /><div class="item-info"><h3>Halloumi Sla</h3><p>Zongedroogde tomaten, ruca, gegrilde groenten, halloumi, rode ui, basilicum, mix pitten</p><span>€17,00</span></div></div>
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Bruschetta_Pomodoro.jpg" alt="Bruchetta" /><div class="item-info"><h3>Bruchetta</h3><p>Gesneden brood, mozarella, tomaten, ui, balsamico, basilicum</p><span>€12,00</span></div></div>
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Grilled_chicken_salad.jpg" alt="Salade Gegrilde Kip" /><div class="item-info"><h3>Salade Gegrilde Kip</h3><span>€17,00</span></div></div>
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Julienne_salad.jpg" alt="Zonnige Salade Julienne" /><div class="item-info"><h3>Zonnige Salade Julienne</h3><p>Gesneden groenten, ijsbergsla, tomaat, komkommer, wortel, mango, rode ui, mais, kippenblokjes en warme curry</p><span>€17,00</span></div></div>
-        <div class="menu-item salades"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Mixed_salad.jpg" alt="Salade Mix Van PEPPER" /><div class="item-info"><h3>Salade Mix Van PEPPER</h3><span>€14,00</span></div></div>
+        <article class="category salades">
+            <header>
+                <h3>Salades</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Greek_salad_%285178297958%29.jpg" alt="Griekse sla" loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Fruit_Salad_with_Grilled_Halloumi_Cheese.jpg" alt="Halloumi sla" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items">
+                <li class="wrap"><span class="name">Griekse Sla <em>(Tomaten, komkommer, groene paprika, kalamon olijven, fetakaas, olijfolie, sarma)</em></span><span class="price">€17,00</span></li>
+                <li class="wrap"><span class="name">Halloumi Sla <em>(Zongedroogde tomaten, rucola, gegrilde groenten, halloumi, rode ui, basilicum, mix pitten)</em></span><span class="price">€17,00</span></li>
+                <li class="wrap"><span class="name">Bruchetta <em>(Gesneden brood, mozzarella, tomaten, ui, balsamico, basilicum)</em></span><span class="price">€12,00</span></li>
+                <li><span class="name">Salade Gegrilde Kip</span><span class="price">€17,00</span></li>
+                <li class="wrap"><span class="name">Zonnige Salade Julienne <em>(Gesneden groenten, ijsbergsla, tomaat, komkommer, wortel, mango, rode ui, mais, kipblokjes & warme curry)</em></span><span class="price">€17,00</span></li>
+                <li><span class="name">Salade Mix Van PEPPER</span><span class="price">€14,00</span></li>
+            </ul>
+        </article>
 
-        <!-- BBQ BROODJES -->
-        <div class="menu-item bbq-broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Chicken_kebab_sandwich.jpg" alt="Broodje Gegrilde Kip" /><div class="item-info"><h3>Broodje Gegrilde Kip</h3><span>€12,00</span></div></div>
-        <div class="menu-item bbq-broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/K%C3%B6fte_ekmek.jpg" alt="Broodje Köfte" /><div class="item-info"><h3>Broodje Köfte</h3><span>€12,00</span></div></div>
-        <div class="menu-item bbq-broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Adana_kebab_sandwich.jpg" alt="Broodje Adana" /><div class="item-info"><h3>Broodje Adana</h3><span>€12,00</span></div></div>
+        <!-- BBQ Broodjes -->
+        <article class="category bbq-broodjes">
+            <header>
+                <h3>BBQ Broodjes</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Chicken_kebab_sandwich.jpg" alt="Broodje kip" loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/K%C3%B6fte_ekmek.jpg" alt="Broodje köfte" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Broodje Gegrilde Kip</span><span class="price">€12,00</span></li>
+                <li><span class="name">Broodje Köfte</span><span class="price">€12,00</span></li>
+                <li><span class="name">Broodje Adana</span><span class="price">€12,00</span></li>
+            </ul>
+        </article>
 
-        <!-- FRIETEN -->
-        <div class="menu-item frieten"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/French_fries_20180827.jpg" alt="Kleine Friet" /><div class="item-info"><h3>Kleine Friet</h3><span>€3,00</span></div></div>
-        <div class="menu-item frieten"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/French_fries_20180827.jpg" alt="Grote Friet" /><div class="item-info"><h3>Grote Friet</h3><span>€4,00</span></div></div>
+        <!-- Frieten -->
+        <article class="category frieten">
+            <header>
+                <h3>Frieten</h3>
+                <div class="thumbs">
+                    <img src="images/fries.jpg" alt="Frieten" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items">
+                <li><span class="name">Kleine Friet</span><span class="price">€3,00</span></li>
+                <li><span class="name">Grote Friet</span><span class="price">€4,00</span></li>
+            </ul>
+        </article>
 
-        <!-- POKE BOWL -->
-        <div class="menu-item pokebowl">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Poke_bowl_004.jpg" alt="Poke Bowl" />
-            <div class="item-info">
+        <!-- Poke Bowl -->
+        <article class="category pokebowl">
+            <header>
                 <h3>Poke Bowl</h3>
-                <p>
-                    <b>Stap 1:</b> Rijst / Couscous / Sla / Bulgur / Mix Sla+Rijst<br>
-                    <b>Stap 2:</b> Tofu, Surimi, Gerookte Zalm, Ei, Falafel, Feta, Gegrilde Kip (extra proteïne +€2,50; zalm +€3,50)<br>
-                    <b>Stap 3:</b> 5 mix-ins: Komkommer, Cherry-tomaten, Edamame, Wortel, Avocado, Rode Biet, Rode Kool, Mango, Ananas, Radijs, Paprika, Olijven, Augurken, Granaatappel, Mais (extra +€1,00)<br>
-                    <b>Stap 4:</b> Dressing (1): Sesam, Avocado Look, Tzatziki, Sweet Chilli, Sojasaus, Honing Mosterd, Wasabi Mayo, Humus, Granaatappelsaus (extra +€1,00)<br>
-                    <b>Stap 5:</b> Toppings (2): Sesam Mix, Mix Pitten, Crispy Ui, Lente Ui, Noten, Chilli Vlokken, Zwarte Komijn, Sumak (extra +€0,50)
-                </p>
-                <span>€17,00</span>
-            </div>
-        </div>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Poke_bowl_004.jpg" alt="Poke bowl" loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Poke_bowl_ingredients.jpg" alt="Poke ingrediënten" loading="lazy" />
+                </div>
+            </header>
+            <p class="note">
+                <strong>Stap 1:</strong> Rijst / Couscous / Sla / Bulgur / Mix Sla+Rijst ·<br />
+                <strong>Stap 2:</strong> Tofu, Surimi, Gerookte Zalm, Ei, Falafel, Feta, Gegrilde Kip (extra proteïne +€2,50; zalm +€3,50) <br />
+                <strong>Stap 3:</strong> 5 mix-ins (Komkommer, Cherry-tomaten, Edamame, ... extra +€1,00) ·<br />
+                <strong>Stap 4:</strong> Dressing (1) (Sesam, Avocado Look, ... extra +€1,00) ·<br />
+                <strong>Stap 5:</strong> Toppings (2) (Sesam Mix, Mix Pitten, ... extra +€0,50)
+            </p>
+            <ul class="items">
+                <li><span class="name">Poke Bowl</span><span class="price">€17,00</span></li>
+            </ul>
+        </article>
 
-        <!-- BBQ SCHOTELS -->
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/K%C3%B6fte.jpg" alt="Schotel Köfte" /><div class="item-info"><h3>Schotel Köfte</h3><span>€20,00</span></div></div>
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Adana_kebab.jpg" alt="Schotel Adana" /><div class="item-info"><h3>Schotel Adana</h3><span>€20,00</span></div></div>
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Chicken_with_mushroom_sauce.jpg" alt="Schotel Kipfilet" /><div class="item-info"><h3>Schotel Kipfilet (champignonsaus &amp; witloofsla)</h3><span>€20,00</span></div></div>
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Chicken_Satay.jpg" alt="Schotel Kipsaté" /><div class="item-info"><h3>Schotel Kipsaté</h3><span>€20,00</span></div></div>
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Beefsteak_with_pepper_sauce.jpg" alt="Schotel Biefstuk" /><div class="item-info"><h3>Schotel Biefstuk (peperroomsaus, gegrilde groenten, friet, sla)</h3><span>€25,00</span></div></div>
-        <div class="menu-item bbq-schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Grilled_vegetables.jpg" alt="Schotel gebakken groenten" /><div class="item-info"><h3>Schotel gebakken groenten (op houtskoolgrill)</h3><span>€15,00</span></div></div>
+        <!-- BBQ Schotels -->
+        <article class="category bbq-schotels">
+            <header>
+                <h3>BBQ Schotels</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/K%C3%B6fte.jpg" alt="Köfte" loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Adana_kebab.jpg" alt="Adana" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Schotel Köfte</span><span class="price">€20,00</span></li>
+                <li><span class="name">Schotel Adana</span><span class="price">€20,00</span></li>
+                <li class="wrap"><span class="name">Schotel Kipfilet <em>(champignonsaus & witloofsla)</em></span><span class="price">€20,00</span></li>
+                <li><span class="name">Schotel Kipsaté</span><span class="price">€20,00</span></li>
+                <li class="wrap"><span class="name">Schotel Biefstuk <em>(peperroomsaus, gegrilde groenten, friet, sla)</em></span><span class="price">€25,00</span></li>
+                <li class="wrap"><span class="name">Schotel gebakken groenten <em>(op houtskoolgrill)</em></span><span class="price">€15,00</span></li>
+            </ul>
+        </article>
 
-        <!-- SCHOTELS -->
-        <div class="menu-item schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Schotel Kebab/Kip/Mix" /><div class="item-info"><h3>Schotel Kebab / Kip / Mix</h3><span>€18,00</span></div></div>
-        <div class="menu-item schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Schotel Kebab/Kip/Mix Feta" /><div class="item-info"><h3>Schotel Kebab / Kip / Mix Feta</h3><span>€20,00</span></div></div>
-        <div class="menu-item schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Schotel Kebab/Kip/Mix Hawai" /><div class="item-info"><h3>Schotel Kebab / Kip / Mix Hawai</h3><span>€20,00</span></div></div>
-        <div class="menu-item schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Falafel_plate.jpg" alt="Schotel Falafel" /><div class="item-info"><h3>Schotel Falafel</h3><span>€18,00</span></div></div>
-        <div class="menu-item schotels"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Iskender_kebab_2.jpg" alt="Iskender" /><div class="item-info"><h3>Iskender</h3><p>Stukjes brood, kebabvlees, tomatensaus, boter, yoghurt</p><span>€18,00</span></div></div>
+        <!-- Schotels -->
+        <article class="category schotels">
+            <header>
+                <h3>Schotels</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Kebab schotel" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Schotel Kebab / Kip / Mix</span><span class="price">€18,00</span></li>
+                <li><span class="name">Schotel Kebab / Kip / Mix Feta</span><span class="price">€20,00</span></li>
+                <li><span class="name">Schotel Kebab / Kip / Mix Hawai</span><span class="price">€20,00</span></li>
+                <li><span class="name">Schotel Falafel</span><span class="price">€18,00</span></li>
+                <li class="wrap"><span class="name">Iskender <em>(brood, kebabvlees, tomatensaus, boter, yoghurt)</em></span><span class="price">€18,00</span></li>
+            </ul>
+        </article>
 
-        <!-- BAKJES -->
-        <div class="menu-item bakjes"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Bakje Kebab/Kip/Mix" /><div class="item-info"><h3>Bakje Kebab / Kip / Mix</h3><span>€12,50</span></div></div>
+        <!-- Bakjes -->
+        <article class="category bakjes">
+            <header>
+                <h3>Bakjes</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Doner_kebab_plate.jpg" alt="Bakje" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items">
+                <li><span class="name">Bakje Kebab / Kip / Mix</span><span class="price">€12,50</span></li>
+            </ul>
+        </article>
 
-        <!-- HAMBURGERS -->
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDot_Burger.jpg" alt="Hamburger" /><div class="item-info"><h3>Hamburger</h3><span>€6,00</span></div></div>
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDot_Burger.jpg" alt="Cheeseburger" /><div class="item-info"><h3>Cheeseburger</h3><span>€6,50</span></div></div>
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Fish_burger.jpg" alt="Fishburger" /><div class="item-info"><h3>Fishburger</h3><span>€6,50</span></div></div>
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Fish_burger.jpg" alt="Fish Cheeseburger" /><div class="item-info"><h3>Fish Cheeseburger</h3><span>€6,50</span></div></div>
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Bicky_Burger.jpg" alt="Bicky Burger" /><div class="item-info"><h3>Bicky Burger</h3><span>€6,00</span></div></div>
-        <div class="menu-item hamburgers"><img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Bicky_Burger.jpg" alt="Bicky Cheeseburger" /><div class="item-info"><h3>Bicky Cheeseburger</h3><span>€6,50</span></div></div>
+        <!-- Hamburgers -->
+        <article class="category hamburgers">
+            <header>
+                <h3>Hamburgers</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/RedDot_Burger.jpg" alt="Hamburger" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Hamburger</span><span class="price">€6,00</span></li>
+                <li><span class="name">Cheeseburger</span><span class="price">€6,50</span></li>
+                <li><span class="name">Fishburger</span><span class="price">€6,50</span></li>
+                <li><span class="name">Fish Cheeseburger</span><span class="price">€6,50</span></li>
+                <li><span class="name">Bicky Burger</span><span class="price">€6,00</span></li>
+                <li><span class="name">Bicky Cheeseburger</span><span class="price">€6,50</span></li>
+            </ul>
+        </article>
 
-        <!-- ZAPIEKANKA -->
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka Klassiek" /><div class="item-info"><h3>Zapiekanka Klassiek</h3><span>€12,00</span></div></div>
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka Mexicano" /><div class="item-info"><h3>Zapiekanka Mexicano</h3><span>€15,00</span></div></div>
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka Tomaat & Mozzarella" /><div class="item-info"><h3>Zapiekanka Tomaat &amp; Mozzarella</h3><span>€15,00</span></div></div>
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka Kipcurry & Ananas" /><div class="item-info"><h3>Zapiekanka Kipcurry &amp; Ananas</h3><span>€15,00</span></div></div>
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka met Kip of Kebab" /><div class="item-info"><h3>Zapiekanka met Kip of Kebab</h3><span>€15,00</span></div></div>
-        <div class="menu-item zapiekanka"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka met Feta en Olijven" /><div class="item-info"><h3>Zapiekanka met Feta en Olijven</h3><span>€15,00</span></div></div>
+        <!-- Zapiekanka -->
+        <article class="category zapiekanka">
+            <header>
+                <h3>Zapiekanka</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Zapiekanka_3.jpg" alt="Zapiekanka" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Klassiek</span><span class="price">€12,00</span></li>
+                <li><span class="name">Mexicano</span><span class="price">€15,00</span></li>
+                <li><span class="name">Tomaat & Mozzarella</span><span class="price">€15,00</span></li>
+                <li><span class="name">Kipcurry & Ananas</span><span class="price">€15,00</span></li>
+                <li><span class="name">Met Kip of Kebab</span><span class="price">€15,00</span></li>
+                <li><span class="name">Met Feta en Olijven</span><span class="price">€15,00</span></li>
+            </ul>
+        </article>
 
-        <!-- BROODJES -->
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Doner_kebab_sandwich.jpg" alt="Broodje Kebab/Kip/Mix" /><div class="item-info"><h3>Broodje Kebab / Kip / Mix</h3><span>€11,50</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Doner_kebab_sandwich.jpg" alt="Broodje Kebab/Kip/Mix Feta" /><div class="item-info"><h3>Broodje Kebab / Kip / Mix Feta</h3><span>€12,50</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Doner_kebab_sandwich.jpg" alt="Broodje Kebab/Kip/Mix Hawai" /><div class="item-info"><h3>Broodje Kebab / Kip / Mix Hawai</h3><span>€12,50</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Doner_kebab_sandwich.jpg" alt="Broodje Kebab/Kip/Mix Speciaal" /><div class="item-info"><h3>Broodje Kebab / Kip / Mix Speciaal</h3><span>€12,50</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Vegetarian_sandwich.jpg" alt="Broodje Vegetarisch" /><div class="item-info"><h3>Broodje Vegetarisch</h3><span>€10,00</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Falafel_sandwich.jpg" alt="Broodje Falafel" /><div class="item-info"><h3>Broodje Falafel</h3><span>€12,00</span></div></div>
-        <div class="menu-item broodjes"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Falafel_sandwich.jpg" alt="Broodje Falafel Speciaal" /><div class="item-info"><h3>Broodje Falafel Speciaal</h3><span>€12,50</span></div></div>
+        <!-- Broodjes -->
+        <article class="category broodjes">
+            <header>
+                <h3>Broodjes</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Doner_kebab_sandwich.jpg" alt="Broodje" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Kebab / Kip / Mix</span><span class="price">€11,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Feta</span><span class="price">€12,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Hawai</span><span class="price">€12,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Speciaal</span><span class="price">€12,50</span></li>
+                <li><span class="name">Vegetarisch</span><span class="price">€10,00</span></li>
+                <li><span class="name">Falafel</span><span class="price">€12,00</span></li>
+                <li><span class="name">Falafel Speciaal</span><span class="price">€12,50</span></li>
+            </ul>
+        </article>
 
-        <!-- KAPSALON -->
-        <div class="menu-item kapsalon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Kapsalon_dutch_meal.jpg" alt="Kapsalon Kebab/Kip/Mix" /><div class="item-info"><h3>Kapsalon Kebab / Kip / Mix</h3><span>€12,00</span></div></div>
-        <div class="menu-item kapsalon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Kapsalon_dutch_meal.jpg" alt="Kapsalon Feta" /><div class="item-info"><h3>Kapsalon Kebab / Kip / Mix Feta</h3><span>€13,50</span></div></div>
-        <div class="menu-item kapsalon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Kapsalon_dutch_meal.jpg" alt="Kapsalon Hawai" /><div class="item-info"><h3>Kapsalon Kebab / Kip / Mix Hawai</h3><span>€13,50</span></div></div>
-        <div class="menu-item kapsalon"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Kapsalon_dutch_meal.jpg" alt="Kapsalon Mexicano" /><div class="item-info"><h3>Kapsalon Kebab / Kip / Mix Mexicano</h3><span>€13,50</span></div></div>
+        <!-- Kapsalon -->
+        <article class="category kapsalon">
+            <header>
+                <h3>Kapsalon</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Kapsalon_dutch_meal.jpg" alt="Kapsalon" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Kebab / Kip / Mix</span><span class="price">€12,00</span></li>
+                <li><span class="name">Kebab / Kip / Mix Feta</span><span class="price">€13,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Hawai</span><span class="price">€13,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Mexicano</span><span class="price">€13,50</span></li>
+            </ul>
+        </article>
 
-        <!-- DURUMS -->
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/D%C3%B6ner_kebab_durum.jpg" alt="Durum Kebab/Kip/Mix" /><div class="item-info"><h3>Durum Kebab / Kip / Mix</h3><span>€8,50</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/D%C3%B6ner_kebab_durum.jpg" alt="Durum Feta" /><div class="item-info"><h3>Durum Kebab / Kip / Mix Feta</h3><span>€10,00</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/D%C3%B6ner_kebab_durum.jpg" alt="Durum Hawai" /><div class="item-info"><h3>Durum Kebab / Kip / Mix Hawai</h3><span>€10,00</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/D%C3%B6ner_kebab_durum.jpg" alt="Durum Speciaal" /><div class="item-info"><h3>Durum Kebab / Kip / Mix Speciaal</h3><span>€10,00</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Falafel_wrap.jpg" alt="Durum Vegetarisch" /><div class="item-info"><h3>Durum Vegetarisch</h3><span>€8,50</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Falafel_wrap.jpg" alt="Durum Falafel" /><div class="item-info"><h3>Durum Falafel</h3><span>€8,50</span></div></div>
-        <div class="menu-item durums"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Falafel_wrap.jpg" alt="Durum Falafel Speciaal" /><div class="item-info"><h3>Durum Falafel Speciaal</h3><span>€10,00</span></div></div>
+        <!-- Durums -->
+        <article class="category durums">
+            <header>
+                <h3>Durums</h3>
+                <div class="thumbs">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/D%C3%B6ner_kebab_durum.jpg" alt="Durum" loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Falafel_wrap.jpg" alt="Falafel durum" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Kebab / Kip / Mix</span><span class="price">€8,50</span></li>
+                <li><span class="name">Kebab / Kip / Mix Feta</span><span class="price">€10,00</span></li>
+                <li><span class="name">Kebab / Kip / Mix Hawai</span><span class="price">€10,00</span></li>
+                <li><span class="name">Kebab / Kip / Mix Speciaal</span><span class="price">€10,00</span></li>
+                <li><span class="name">Vegetarisch</span><span class="price">€8,50</span></li>
+                <li><span class="name">Falafel</span><span class="price">€8,50</span></li>
+                <li><span class="name">Falafel Speciaal</span><span class="price">€10,00</span></li>
+            </ul>
+        </article>
 
-        <!-- SUPPLEMENTEN -->
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Steamed_rice.jpg" alt="Rijst" /><div class="item-info"><h3>Rijst</h3><span>€6,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Feta_Cheese.jpg" alt="Feta" /><div class="item-info"><h3>Feta</h3><span>€3,50</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Olives%2C_black_and_green.jpg" alt="Olijven" /><div class="item-info"><h3>Olijven</h3><span>€3,50</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Pizza_hawaii_slice.jpg" alt="Hawai" /><div class="item-info"><h3>Hawai</h3><span>€3,50</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Chili_peppers.jpg" alt="Pepers" /><div class="item-info"><h3>Pepers</h3><span>€3,50</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/7/71/Cacik.jpg" alt="Cacik" /><div class="item-info"><h3>Cacik</h3><span>€4,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Calamari.jpg" alt="Calamaris" /><div class="item-info"><h3>Calamaris</h3><span>€8,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Falafel_sandwich.jpg" alt="Falafel" /><div class="item-info"><h3>Falafel</h3><span>€8,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Mini_spring_rolls.jpg" alt="Mini Loempia’s" /><div class="item-info"><h3>Mini Loempia’s</h3><span>€8,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Mixed_meze.jpg" alt="Gemengde Portie Hapjes" /><div class="item-info"><h3>Gemengde Portie Hapjes</h3><span>€16,00</span></div></div>
-        <div class="menu-item supplementen"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Grilled_vegetables.jpg" alt="Portie gebakken groenten" /><div class="item-info"><h3>Portie gebakken groenten (op houtskoolgrill)</h3><span>€10,00</span></div></div>
+        <!-- Supplementen -->
+        <article class="category supplementen">
+            <header>
+                <h3>Supplementen</h3>
+                <div class="thumbs">
+                    <img src="images/rice.jpg" alt="Rijst" loading="lazy" />
+                    <img src="images/feta.jpg" alt="Feta" loading="lazy" />
+                    <img src="images/olive.jpg" alt="Olijven" loading="lazy" />
+                </div>
+            </header>
+            <ul class="items two-col">
+                <li><span class="name">Rijst</span><span class="price">€6,00</span></li>
+                <li><span class="name">Feta</span><span class="price">€3,50</span></li>
+                <li><span class="name">Olijven</span><span class="price">€3,50</span></li>
+                <li><span class="name">Hawai</span><span class="price">€3,50</span></li>
+                <li><span class="name">Pepers</span><span class="price">€3,50</span></li>
+                <li><span class="name">Cacik</span><span class="price">€4,00</span></li>
+                <li><span class="name">Calamaris</span><span class="price">€8,00</span></li>
+                <li><span class="name">Falafel</span><span class="price">€8,00</span></li>
+                <li><span class="name">Mini Loempia’s</span><span class="price">€8,00</span></li>
+                <li><span class="name">Gemengde Portie Hapjes</span><span class="price">€16,00</span></li>
+                <li class="wrap"><span class="name">Portie gebakken groenten <em>(op houtskoolgrill)</em></span><span class="price">€10,00</span></li>
+            </ul>
+        </article>
 
-      <div class="menu-item Extras">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/French_fries_20180827.jpg" alt="Extra's" />
-    <div class="item-info">
-      <h3>Extra’s</h3>
-      <p>Extra Friet €1,00 — Extra Vlees €2,00 — Extra Potje Saus €1,00 — Extra Saus Bak €3,00 (diverse sauzen)</p>
-    </div>
-        </div>
-
-
+        <!-- Extra's -->
+        <article class="category Extras">
+            <header>
+                <h3>Extra’s</h3>
+                <div class="thumbs">
+                    <img src="images/fries.jpg" alt="Extra friet" loading="lazy" />
+                </div>
+            </header>
+            <p class="note">Extra Friet €1,00 — Extra Vlees €2,00 — Extra Potje Saus €1,00 — Extra Saus Bak €3,00 (diverse sauzen)</p>
+        </article>
     </section>
 
     <!-- Footer -->
@@ -265,33 +455,104 @@
     </footer>
 
     <script>
-        const buttons = document.querySelectorAll(".filter-btn");
-        const items = document.querySelectorAll(".menu-item");
-        const grid = document.querySelector(".menu-grid");
-        const navbar = document.querySelector(".navbar");
+        /* ============== KATEGORİ FİLTRE + YUMUŞAK KAYDIRMA ============== */
+        (function () {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const categories = document.querySelectorAll('.menu-section .category');
+            const menuSection = document.getElementById('menu');
+            const navbar = document.querySelector('.navbar');
+            const siteNav = document.getElementById('site-nav');
+            const prefersNoMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        function smoothScrollTo(el) {
-            if (!el) return;
-            const offset = navbar ? navbar.offsetHeight : 80;     // yapışkan header yüksekliği
-            const y = el.getBoundingClientRect().top + window.pageYOffset - offset - 10;
-            window.scrollTo({ top: y, behavior: "smooth" });
-        }
+            function getOffsetTop(el) {
+                if (!el) return 0;
+                const navH = navbar ? navbar.offsetHeight : 0;
+                const rect = el.getBoundingClientRect();
+                return Math.max(0, rect.top + window.pageYOffset - navH - 10);
+            }
 
-        buttons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                // aktif buton
-                buttons.forEach(b => b.classList.remove("active"));
-                btn.classList.add("active");
+            function smoothScrollToEl(el) {
+                if (!el) return;
+                const top = getOffsetTop(el);
+                // reduced-motion tercihine saygı
+                if (prefersNoMotion) {
+                    window.scrollTo(0, top);
+                } else {
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            }
 
-                // filtrele
-                const filter = btn.dataset.filter;
-                items.forEach(item => {
-                    const show = (filter === "all" || item.classList.contains(filter));
-                    item.style.display = show ? "flex" : "none";
+            function firstVisibleCategory() {
+                // ekranda gösterilen ilk kategori
+                for (const cat of categories) {
+                    if (cat.style.display !== 'none') return cat;
+                }
+                return null;
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // aktif buton stili
+                    buttons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+
+                    // kategorileri göster/gizle
+                    categories.forEach(cat => {
+                        const show = (filter === 'all' || cat.classList.contains(filter));
+                        cat.style.display = show ? '' : 'none';
+                    });
+
+                    // mobilde menüyü kapat (varsa)
+                    if (siteNav && siteNav.classList.contains('show')) {
+                        siteNav.classList.remove('show');
+                        const toggle = document.querySelector('.menu-toggle');
+                        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                    }
+
+                    // layout güncellensin diye küçük bir microtask/raf bekleyip sonra kaydır
+                    requestAnimationFrame(() => {
+                        const target = (filter === 'all') ? menuSection : firstVisibleCategory() || menuSection;
+                        smoothScrollToEl(target);
+                    });
                 });
+            });
+        })();
 
-                // ⬇️ filtreye tıklayınca grid'e yumuşak scroll
-                smoothScrollTo(grid);
+        /* ============== GÖRSEL DAYANIKLILIĞI (İYİLEŞTİRİLMİŞ) ============== */
+        document.addEventListener('DOMContentLoaded', () => {
+            const fallback = 'images/placeholder.jpg';
+            let hasFallback = false;
+
+            // fallback var mı kontrol (opsiyonel ama faydalı)
+            fetch(fallback, { method: 'HEAD' })
+                .then(r => { hasFallback = r.ok; })
+                .catch(() => { hasFallback = false; });
+
+            document.querySelectorAll('img').forEach(img => {
+                img.loading = 'lazy';
+                img.decoding = 'async';
+
+                // yalnızca uzak kaynaklara CORS/referrer uygula
+                try {
+                    const u = new URL(img.getAttribute('src'), location.href);
+                    const isRemote = u.origin !== location.origin;
+                    if (isRemote) {
+                        img.setAttribute('referrerpolicy', 'no-referrer');
+                        img.setAttribute('crossorigin', 'anonymous');
+                    } else {
+                        img.removeAttribute('crossorigin');
+                        img.removeAttribute('referrerpolicy');
+                    }
+                } catch { /* geçersiz src varsa sessizce geç */ }
+
+                img.addEventListener('error', () => {
+                    if (img.dataset.fallback || !hasFallback) return;
+                    img.dataset.fallback = '1';
+                    img.removeAttribute('srcset');
+                    img.setAttribute('src', fallback);
+                });
             });
         });
     </script>
